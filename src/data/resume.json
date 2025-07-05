@@ -1,0 +1,142 @@
+{
+  "personalInfo": {
+    "name": "Ranjeet Harishchandre",
+    "title": "Frontend Developer",
+    "email": "ranjeetharishchandre@gmail.com",
+    "phone": "+919960667293",
+    "location": ["Bangalore", "Pune", "Mumbai"],
+    "github": "https://github.com/ranjeet-h",
+    "experience": 4.5,
+    "image": "https://media.licdn.com/dms/image/v2/D5635AQE30PoLSjKtug/profile-framedphoto-shrink_400_400/B56ZdaMDTtHEAc-/0/1749564798574?e=1752292800&v=beta&t=rxAzfkopHasOmueJ8ZGyYf2Fy_IfLBR5Fz7Z_aA6CiE"
+  },
+  "summary": "As a professional Frontend Developer I have around 4.5 years of experience and, I possess expertise in React, Redux, Javascript, Zustand TypeScript, Next.js, SCSS, Tailwind CSS, and more. Throughout my career, I've contributed to over 35+ web projects, catering to a diverse range of clients from finance to e-commerce. Additionally, I've worked on DeFi projects and cryptocurrency trading platforms, expanding my knowledge in these domains.\n\nPassionate about web technologies, I adopt a continuous learning approach to enhance my skills. Currently, I'm immersing myself in Flutter and Dart, with future aspirations to delve into Blockchain Development.",
+  "skills": {
+    "languages": ["JavaScript", "TypeScript", "HTML5", "CSS3", "SCSS"],
+    "frameworks": ["React", "Next.js", "Redux", "Zustand"],
+    "styling": ["TailwindCSS", "Chakra UI", "Ant Design"],
+    "tools": ["Vite", "Jest", "React Testing Library", "Git"],
+    "backend": ["Node.js", "MongoDB", "Mongoose"],
+    "spokenLanguages": ["English", "Hindi", "Marathi"]
+  },
+  "experience": [
+    {
+      "company": "Recruiterflow",
+      "position": "Frontend Developer",
+      "duration": "2022-08-28 - Present",
+      "website": "https://recruiterflow.com/",
+      "workType": "In Office",
+      "description": "At RecruiterFlow, I work as a Frontend Developer, focusing on building reusable components and developing web applications with cutting-edge features. These applications are utilized by thousands of users in their daily routines.",
+      "achievements": [
+        "Redesigned the application form, which is used by more than 1 million people every week. Implemented React similarly to how Meta does it, by injecting it inside the webpage instead of building the entire page with React. This solution significantly increased the speed of the website.",
+        "Implemented OpenAI and Bard APIs to automate text writing. Added the speech-to-action feature to enable users to perform actions using voice commands.",
+        "Worked on upgrading the Frontend libraries in our very large project with a lot of dependencies. Achieved 100% uptime and zero bugs in production by upgrading chunks of libraries at a time, starting with Node and React. Received praise from the CTO for this accomplishment.",
+        "Integrated RF-GPT into our SaaS product, which helps recruiters automate tasks such as email writing, job description creation, and call logs. This feature enhances their workflow by generating screening questions, saving them significant time and effort."
+      ],
+      "highlights": [
+        {
+          "title": "Test Infrastructure & Coverage Expansion (550+ Tests)",
+          "details": [
+            "Took ownership of setting up and expanding the frontend testing ecosystem",
+            "Introduced TypeScript for better type safety and scalability",
+            "Integrated Jest and React Testing Library (RTL) for robust unit and integration testing",
+            "Wrote 550+ test cases, achieving high coverage across critical features"
+          ]
+        },
+        {
+          "title": "AG Grid Optimization & Bundle Chunking (~45% Faster Load Time)",
+          "details": [
+            "Refactored large data-heavy modules using code-splitting and dynamic imports, significantly reducing initial load size",
+            "Optimized AG Grid rendering and state updates, resulting in a ~45% improvement in page load and render times for large datasets",
+            "Leveraged techniques like virtualization tuning, memoization, and selective column rendering to minimize unnecessary re-renders",
+            "Collaborated closely with the backend team to implement efficient pagination and data shaping strategies"
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Stackera PVT. LTD.",
+      "position": "Associate Software Developer",
+      "duration": "2021-06-28 - 2022-08-01",
+      "website": "https://stackera.io/",
+      "workType": "Hybrid",
+      "description": "Worked on DeFi cryptocurrency web applications, including:",
+      "projects": [
+        {
+          "name": "InvestDex",
+          "description": "a DeFi web application built in React with custom Next.js and Chakra UI. Collaborated with a team on this project."
+        },
+        {
+          "name": "Trifle Finance",
+          "description": "an in-house cryptocurrency exchange and DeFi application. Independently developed the web app using Next.js, TypeScript, and Tailwind CSS."
+        },
+        {
+          "name": "Gimble Pay",
+          "description": "a payment integration for web applications. Worked on the front-end using Next.js, TypeScript, and Tailwind CSS."
+        },
+        {
+          "name": "SPSQ",
+          "description": "a crypto trading platform originally built in jQuery. Converted it into an Electron React application for Windows, macOS, and Linux."
+        }
+      ],
+      "achievements": [
+        "Developed a full-stack web application using modern technologies such as React, Node.js, and MongoDB."
+      ]
+    },
+    {
+      "company": "ZEALIT SOLUTIONS PVT. LTD",
+      "position": "React Developer Intern",
+      "duration": "2021-02-01 - 2021-07-01",
+      "workType": "Remote",
+      "description": "In my six months of work, I worked on an enterprise application aimed at providing pre-developed web app templates without the need for coding. Through this experience, I gained valuable insights into professional web development practices and industry standards."
+    },
+    {
+      "company": "Self Employed",
+      "position": "Worked As Freelancer",
+      "duration": "2020-07-01 - 2021-02-01",
+      "description": "I've worked as a freelancer on React web applications. One project I'm particularly proud of is the PVP Collage site, which I developed as a freelance project. It's a fully responsive website built using Next.js, Tailwind, and JavaScript. You can view the development link here: https://pvpcollage-loni-webapp.vercel.app/"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master in Computer Science",
+      "university": "P.V.P COLLAGE LONI, University of PUNE",
+      "year": 2021,
+      "grade": "8.2/10"
+    },
+    {
+      "degree": "BSc in Computer Science",
+      "university": "DEOLALI COLLAGE, University of PUNE",
+      "year": 2018,
+      "grade": "62.00%"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Mauli CSP",
+      "description": "I have built the Customer Support Portal as SaaS software. This website is focused on small and medium-sized shops, where shopkeepers can add entries for new products, sales, and track borrowings. The main focus was to provide easy access to statistics on inventory and sales.",
+      "details": "Here I have solo developed full backend and frontend both. I used React, TypeScript, Vite, and Ant Design for frontend, and for the backend, I have used Node.js, MongoDB, Mongoose, etc.",
+      "learning": "While building this project, the main learning was how to develop the project that is scalable and how to plan from the start so that it will be easy to add and remove big features. This project is a tremendous achievement for me, and I am still working to improve the project and add more features to it.",
+      "tech": ["React", "TypeScript", "Vite", "Ant Design", "Node.js", "MongoDB", "Mongoose"]
+    },
+    {
+      "name": "PVP Collage Site",
+      "url": "https://pvpcollage-loni-webapp.vercel.app/",
+      "description": "I'm particularly proud of is the PVP Collage site, which I developed. It's a fully responsive website built using Next.js, Tailwind, and JavaScript.",
+      "tech": ["Next.js", "Tailwind CSS", "JavaScript"]
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "Fluent"
+    },
+    {
+      "name": "Hindi",
+      "level": "Fluent"
+    },
+    {
+      "name": "Marathi",
+      "level": "Fluent"
+    }
+  ]
+} 
