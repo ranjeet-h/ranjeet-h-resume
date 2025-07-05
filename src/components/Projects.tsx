@@ -22,7 +22,7 @@ const Projects = ({ projects }: ProjectsProps) => {
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
         >
             <div className="section-header">
                 <span className="token comment">// Personal Projects</span>
