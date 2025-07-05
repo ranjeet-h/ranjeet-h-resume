@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Projects from './components/Projects';
+import ProjectQuickLinks from './components/ProjectQuickLinks';
 import { containerVariants, scrollVariants } from './components/animation';
 import { useState, useEffect } from 'react';
 
@@ -37,6 +38,9 @@ const App = () => {
             <div className="container">
                 {/* Header with Profile */}
                 <Header personalInfo={resumeData.personalInfo} summary={resumeData.summary} />
+
+                {/* Quick Links */}
+                <ProjectQuickLinks projects={resumeData.projects} />
 
                 {/* Main Content */}
                 <motion.div

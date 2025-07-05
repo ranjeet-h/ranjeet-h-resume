@@ -15,7 +15,7 @@ interface EducationProps {
 const Education = ({ education }: EducationProps) => {
     return (
         <motion.div
-            className="code-section half-width"
+            className="code-section full-width"
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"

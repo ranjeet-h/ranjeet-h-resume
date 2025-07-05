@@ -112,17 +112,76 @@
   ],
   "projects": [
     {
+      "name": "PVP Collage Website",
+      "url": "https://pvpcollage-loni-webapp.vercel.app/",
+      "description": "I'm particularly proud of is the PVP Collage site, which I developed. It's a fully responsive website built using Next.js, Tailwind, and JavaScript.",
+      "tech": ["Next.js", "Tailwind CSS", "JavaScript"]
+    },
+    {
+      "name": "Local Network Chat",
+      "url": "https://github.com/ranjeet-h/LAN-chat-app-rust",
+      "description": "A Rust-based chat application that allows users to message each other on the same local network without an internet connection. It automatically discovers other users and provides a private, secure, and direct peer-to-peer connection.",
+      "learning": "This project was a deep dive into Rust, focusing on local network discovery, peer-to-peer communication, and building a fast, reliable, and privacy-focused application without a central server.",
+      "tech": ["Rust"]
+    },
+    {
+      "name": "SciNotepad",
+      "url": "https://github.com/ranjeet-h/sci-editor",
+      "website": "https://sci-editor.vercel.app/",
+      "description": "A web-based notepad that performs instant calculations, supports variables, and includes a built-in plotting feature for visualizing mathematical functions. It's designed to be a powerful, user-friendly tool without relying on AI.",
+      "details": "Engineered for a seamless experience with features like multi-notebook management, automatic saving, a responsive design for all devices, and extensive keyboard shortcuts.",
+      "tech": ["React", "TypeScript", "Vite", "Math.js"]
+    },
+    {
+      "name": "Rust Web Scraper",
+      "url": "https://github.com/ranjeet-h/rust-based-scrapper",
+      "description": "A web scraping application built with a Rust backend (Axum, SQLite) and a Rust-based frontend (egui) that runs natively and on the web via WebAssembly. It leverages Firecrawl for scraping and was built in collaboration with a partner who handled LLM-based scraping.",
+      "learning": "This was my first major Rust project, providing hands-on experience with building a full-stack application, including a backend API, a native GUI, and a WebAssembly frontend.",
+      "tech": ["Rust", "Axum", "SQLite", "egui", "WebAssembly", "Firecrawl"]
+    },
+    {
+      "name": "AI Question Paper Solver",
+      "url": "https://github.com/ranjeet-h/QP-solver",
+      "description": "A full-stack, AI-powered mobile app for iOS and Android that solves question papers. Built in just 48 hours, it demonstrates rapid development by augmenting human developers with an AI coding assistant.",
+      "details": "The app features core LLM integration, user plans with mock payment flows, and essential mobile navigation. This project showcased how to orchestrate AI tools to accelerate development from concept to a working product.",
+      "tech": ["React Native", "LLM", "AI"]
+    },
+    {
+      "name": "Can I Eat",
+      "url": "https://github.com/ranjeet-h/can-i-eat",
+      "description": "An AI-assisted application designed to transform complex food labels into simple, easy-to-understand information. It provides visual health ratings, detailed ingredient analysis with allergen warnings, and a community contribution system.",
+      "learning": "This project demonstrated the power of AI agents in handling complex full-stack development. Key takeaways include the importance of mobile-first design for in-store scanning and the need for robust verification systems in community-driven applications.",
+      "tech": [
+        "React",
+        "TypeScript",
+        "HeadlessUI",
+        "Zustand",
+        "Supabase",
+        "Framer Motion"
+      ]
+    },
+    {
+      "name": "Algo-Visualized",
+      "url": "https://github.com/ranjeet-h/algo-visualizer",
+      "website": "https://algo-visualizer-lilac.vercel.app/",
+      "description": "An interactive platform built in a single weekend with AI agents to visualize complex data structures and algorithms, including arrays, linked lists, hash tables, and sorting algorithms.",
+      "learning": "This project was an experiment in AI-assisted development, proving that human creativity paired with AI implementation can drastically reduce development time while maintaining high quality. The future of development is collaboration with AI.",
+      "tech": ["React", "TypeScript", "Vite"]
+    },
+    {
       "name": "Mauli CSP",
       "description": "I have built the Customer Support Portal as SaaS software. This website is focused on small and medium-sized shops, where shopkeepers can add entries for new products, sales, and track borrowings. The main focus was to provide easy access to statistics on inventory and sales.",
       "details": "Here I have solo developed full backend and frontend both. I used React, TypeScript, Vite, and Ant Design for frontend, and for the backend, I have used Node.js, MongoDB, Mongoose, etc.",
       "learning": "While building this project, the main learning was how to develop the project that is scalable and how to plan from the start so that it will be easy to add and remove big features. This project is a tremendous achievement for me, and I am still working to improve the project and add more features to it.",
-      "tech": ["React", "TypeScript", "Vite", "Ant Design", "Node.js", "MongoDB", "Mongoose"]
-    },
-    {
-      "name": "PVP Collage Site",
-      "url": "https://pvpcollage-loni-webapp.vercel.app/",
-      "description": "I'm particularly proud of is the PVP Collage site, which I developed. It's a fully responsive website built using Next.js, Tailwind, and JavaScript.",
-      "tech": ["Next.js", "Tailwind CSS", "JavaScript"]
+      "tech": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Ant Design",
+        "Node.js",
+        "MongoDB",
+        "Mongoose"
+      ]
     }
   ],
   "languages": [
@@ -139,4 +198,4 @@
       "level": "Fluent"
     }
   ]
-} 
+}

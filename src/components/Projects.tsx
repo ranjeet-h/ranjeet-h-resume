@@ -4,6 +4,7 @@ import { sectionVariants } from './animation';
 interface Project {
     name: string;
     url?: string;
+    website?: string;
     description: string;
     details?: string;
     learning?: string;
@@ -17,7 +18,7 @@ interface ProjectsProps {
 const Projects = ({ projects }: ProjectsProps) => {
     return (
         <motion.div
-            className="code-section half-width"
+            className="code-section full-width"
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
@@ -56,7 +57,17 @@ const Projects = ({ projects }: ProjectsProps) => {
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.2 }}
                                 >
-                                    <span className="token property">url</span><span className="token punctuation">:</span> <span className="token string">"{project.url}"</span><span className="token punctuation">,</span>
+                                    <span className="token property">url</span><span className="token punctuation">:</span> <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} - GitHub Repository`}><span className="token string">"{project.url}"</span></a><span className="token punctuation">,</span>
+                                </motion.div>
+                            )}
+                            {project.website && (
+                                <motion.div
+                                    className="code-line indent2"
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.2 }}
+                                >
+                                    <span className="token property">website</span><span className="token punctuation">:</span> <a href={project.website} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} - Live Website`}><span className="token string">"{project.website}"</span></a><span className="token punctuation">,</span>
                                 </motion.div>
                             )}
                             <motion.div
