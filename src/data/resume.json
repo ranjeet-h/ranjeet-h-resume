@@ -7,7 +7,7 @@
     "location": ["Bangalore", "Pune", "Mumbai"],
     "github": "https://github.com/ranjeet-h",
     "experience": 4.5,
-    "image": "https://media.licdn.com/dms/image/v2/D5635AQE30PoLSjKtug/profile-framedphoto-shrink_400_400/B56ZdaMDTtHEAc-/0/1749564798574?e=1752292800&v=beta&t=rxAzfkopHasOmueJ8ZGyYf2Fy_IfLBR5Fz7Z_aA6CiE"
+    "image": "./linkedin_me_profile.jpeg"
   },
   "summary": "As a professional Frontend Developer I have around 4.5 years of experience and, I possess expertise in React, Redux, Javascript, Zustand TypeScript, Next.js, SCSS, Tailwind CSS, and more. Throughout my career, I've contributed to over 35+ web projects, catering to a diverse range of clients from finance to e-commerce. Additionally, I've worked on DeFi projects and cryptocurrency trading platforms, expanding my knowledge in these domains.\n\nPassionate about web technologies, I adopt a continuous learning approach to enhance my skills. Currently, I'm immersing myself in Flutter and Dart, with future aspirations to delve into Blockchain Development.",
   "skills": {
