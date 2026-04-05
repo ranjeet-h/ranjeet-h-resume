@@ -19,11 +19,12 @@ const jsonLd = JSON.stringify({
 });
 
 const skills = [
-  ...resume.skills.languages,
-  ...resume.skills.frameworks,
-  ...resume.skills.styling,
-  ...resume.skills.tools,
-  ...resume.skills.backend,
+  ...(resume.skills.languages ?? []),
+  ...(resume.skills.frontend ?? []),
+  ...(resume.skills.backend ?? []),
+  ...(resume.skills.databases ?? []),
+  ...(resume.skills.infrastructure ?? []),
+  ...(resume.skills.tools ?? []),
 ].join(', ');
 
 export default defineConfig({

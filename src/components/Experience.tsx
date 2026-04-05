@@ -27,222 +27,153 @@ interface ExperienceProps {
     experience: ExperienceEntry[];
 }
 
+const durationFormatter = new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    year: 'numeric',
+});
+
+const parsePeriodDate = (value: string) => {
+    const match = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!match) {
+        return new Date(value);
+    }
+
+    const [, year, month, day] = match;
+    return new Date(Number(year), Number(month) - 1, Number(day));
+};
+
+const formatPeriodPart = (value: string) => {
+    if (!value || /present/i.test(value)) {
+        return 'Present';
+    }
+
+    const parsedDate = parsePeriodDate(value);
+    if (Number.isNaN(parsedDate.getTime())) {
+        return value;
+    }
+
+    return durationFormatter.format(parsedDate);
+};
+
+const formatDuration = (duration: string) => {
+    const [startPart, endPart] = duration.split(' - ').map((value) => value.trim());
+    return `${formatPeriodPart(startPart)} — ${formatPeriodPart(endPart ?? '')}`;
+};
+
 const Experience = ({ experience }: ExperienceProps) => {
     return (
-        <motion.div
-            className="code-section full-width"
-            variants={scrollVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-        >
-            <div className="section-header">
-                <span className="token comment">// Professional Experience</span>
+        <motion.section className="panel experience-panel" variants={scrollVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.12 }} aria-labelledby="experience-title">
+            <div className="panel-head">
+                <p className="section-kicker">Experience</p>
+                <h2 id="experience-title" className="section-title">
+                    What I've shipped across the last 5+ years
+                </h2>
+                <p className="section-copy">Roles, impact, and technical depth across frontend and backend systems.</p>
             </div>
-            <div className="code-line">
-                <span className="token keyword">const</span> <span className="token variable">experience</span> <span className="token operator">=</span> <span className="token punctuation">[</span>
-            </div>
-            <div className="code-block">
-                {experience.map((exp, expIndex) => (
-                    <motion.div
-                        key={expIndex}
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: expIndex * 0.2, duration: 0.8 }}
-                    >
-                        <div className="code-line indent">
-                            <span className="token punctuation">{'{'}</span>
-                        </div>
-                        <div className="code-block">
-                            <motion.div
-                                className="code-line indent2"
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.1 }}
-                            >
-                                <span className="token property">company</span><span className="token punctuation">:</span> <span className="token string">"{exp.company}"</span><span className="token punctuation">,</span>
-                            </motion.div>
-                            <motion.div
-                                className="code-line indent2"
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.2 }}
-                            >
-                                <span className="token property">position</span><span className="token punctuation">:</span> <span className="token string">"{exp.position}"</span><span className="token punctuation">,</span>
-                            </motion.div>
-                            <motion.div
-                                className="code-line indent2"
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.3 }}
-                            >
-                                <span className="token property">duration</span><span className="token punctuation">:</span> <span className="token string">"{exp.duration}"</span><span className="token punctuation">,</span>
-                            </motion.div>
-                            {exp.website && (
-                                <motion.div
-                                    className="code-line indent2"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.4 }}
-                                >
-                                    <span className="token property">website</span><span className="token punctuation">:</span> <span className="token string">"{exp.website}"</span><span className="token punctuation">,</span>
-                                </motion.div>
-                            )}
-                            {exp.workType && (
-                                <motion.div
-                                    className="code-line indent2"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.5 }}
-                                >
-                                    <span className="token property">workType</span><span className="token punctuation">:</span> <span className="token string">"{exp.workType}"</span><span className="token punctuation">,</span>
-                                </motion.div>
-                            )}
-                            <motion.div
-                                className="code-line indent2"
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.6 }}
-                            >
-                                <span className="token property">description</span><span className="token punctuation">:</span> <span className="token string">"{exp.description}"</span><span className="token punctuation">,</span>
-                            </motion.div>
 
-                            {exp.achievements && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.7 }}
-                                >
-                                    <div className="code-line indent2">
-                                        <span className="token property">achievements</span><span className="token punctuation">:</span> <span className="token punctuation">[</span>
-                                    </div>
-                                    <div className="code-block">
-                                        {exp.achievements.map((achievement, achIndex) => (
-                                            <motion.div
-                                                key={achIndex}
-                                                className="code-line indent3"
-                                                initial={{ opacity: 0, x: -20 }}
-                                                whileInView={{ opacity: 1, x: 0 }}
-                                                transition={{ delay: 0.8 + achIndex * 0.1 }}
-                                            >
-                                                <span className="token string">"{achievement}"</span>
-                                                {achIndex < exp.achievements!.length - 1 && <span className="token punctuation">,</span>}
-                                            </motion.div>
-                                        ))}
-                                    </div>
-                                    <div className="code-line indent2">
-                                        <span className="token punctuation">],</span>
-                                    </div>
-                                </motion.div>
-                            )}
+            <div className="experience-listing">
+                {experience.map((exp, expIndex) => {
+                    const achievements = exp.achievements ?? [];
+                    const highlights = exp.highlights ?? [];
+                    const projects = exp.projects ?? [];
 
-                            {exp.highlights && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.9 }}
-                                >
-                                    <div className="code-line indent2">
-                                        <span className="token property">highlights</span><span className="token punctuation">:</span> <span className="token punctuation">[</span>
-                                    </div>
-                                    <div className="code-block">
-                                        {exp.highlights.map((highlight, hlIndex) => (
-                                            <motion.div
-                                                key={hlIndex}
-                                                initial={{ opacity: 0, scale: 0.95 }}
-                                                whileInView={{ opacity: 1, scale: 1 }}
-                                                transition={{ delay: 1 + hlIndex * 0.2 }}
-                                            >
-                                                <div className="code-line indent3">
-                                                    <span className="token punctuation">{'{'}</span>
-                                                </div>
-                                                <div className="code-line indent4">
-                                                    <span className="token property">title</span><span className="token punctuation">:</span> <span className="token string">"{highlight.title}"</span><span className="token punctuation">,</span>
-                                                </div>
-                                                <div className="code-line indent4">
-                                                    <span className="token property">details</span><span className="token punctuation">:</span> <span className="token punctuation">[</span>
-                                                </div>
-                                                <div className="code-block">
-                                                    {highlight.details.map((detail, detIndex) => (
-                                                        <motion.div
-                                                            key={detIndex}
-                                                            className="code-line indent5"
-                                                            initial={{ opacity: 0, x: -20 }}
-                                                            whileInView={{ opacity: 1, x: 0 }}
-                                                            transition={{ delay: 1.2 + detIndex * 0.1 }}
-                                                        >
-                                                            <span className="token string">"{detail}"</span>
-                                                            {detIndex < highlight.details.length - 1 && <span className="token punctuation">,</span>}
-                                                        </motion.div>
-                                                    ))}
-                                                </div>
-                                                <div className="code-line indent4">
-                                                    <span className="token punctuation">]</span>
-                                                </div>
-                                                <div className="code-line indent3">
-                                                    <span className="token punctuation">{'}'}</span>
-                                                    {hlIndex < exp.highlights!.length - 1 && <span className="token punctuation">,</span>}
-                                                </div>
-                                            </motion.div>
-                                        ))}
-                                    </div>
-                                    <div className="code-line indent2">
-                                        <span className="token punctuation">],</span>
-                                    </div>
-                                </motion.div>
-                            )}
+                    return (
+                        <motion.article
+                            key={`${exp.company}-${exp.position}`}
+                            className="experience-item"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: expIndex * 0.08, duration: 0.45 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                        >
+                            <div className="experience-marker">{String(expIndex + 1).padStart(2, '0')}</div>
 
-                            {exp.projects && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 1.4 }}
-                                >
-                                    <div className="code-line indent2">
-                                        <span className="token property">projects</span><span className="token punctuation">:</span> <span className="token punctuation">[</span>
+                            <div className="experience-card">
+                                <div className="experience-top">
+                                    <div className="experience-heading-group">
+                                        <p className="experience-company">{exp.company}</p>
+                                        <h3 className="experience-position">{exp.position}</h3>
                                     </div>
-                                    <div className="code-block">
-                                        {exp.projects.map((project, projIndex) => (
-                                            <motion.div
-                                                key={projIndex}
-                                                initial={{ opacity: 0, x: -20 }}
-                                                whileInView={{ opacity: 1, x: 0 }}
-                                                transition={{ delay: 1.5 + projIndex * 0.1 }}
-                                            >
-                                                <div className="code-line indent3">
-                                                    <span className="token punctuation">{'{'}</span>
-                                                </div>
-                                                <div className="code-line indent4">
-                                                    <span className="token property">name</span><span className="token punctuation">:</span> <span className="token string">"{project.name}"</span><span className="token punctuation">,</span>
-                                                </div>
-                                                <div className="code-line indent4">
-                                                    <span className="token property">description</span><span className="token punctuation">:</span> <span className="token string">"{project.description}"</span>
-                                                </div>
-                                                <div className="code-line indent3">
-                                                    <span className="token punctuation">{'}'}</span>
-                                                    {projIndex < exp.projects!.length - 1 && <span className="token punctuation">,</span>}
-                                                </div>
-                                            </motion.div>
-                                        ))}
+
+                                    <div className="experience-meta">
+                                        <span className="meta-chip">{formatDuration(exp.duration)}</span>
+                                        {exp.workType && <span className="meta-chip">{exp.workType}</span>}
+                                        {exp.website && (
+                                            <a className="meta-chip meta-chip-link" href={exp.website} target="_blank" rel="noopener noreferrer">
+                                                Website
+                                            </a>
+                                        )}
                                     </div>
-                                    <div className="code-line indent2">
-                                        <span className="token punctuation">]</span>
+                                </div>
+
+                                <p className="experience-description">{exp.description}</p>
+
+                                {achievements.length > 0 && (
+                                    <div className="experience-subsection">
+                                        <h4 className="subsection-title">Impact</h4>
+                                        <ul className="achievement-list">
+                                            {achievements.map((achievement, achIndex) => (
+                                                <motion.li
+                                                    key={`${achievement}-${achIndex}`}
+                                                    className="achievement-card"
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    whileInView={{ opacity: 1, y: 0 }}
+                                                    transition={{ delay: 0.12 + achIndex * 0.05, duration: 0.35 }}
+                                                    viewport={{ once: true, amount: 0.2 }}
+                                                >
+                                                    <span className="achievement-index">{String(achIndex + 1).padStart(2, '0')}</span>
+                                                    <p>{achievement}</p>
+                                                </motion.li>
+                                            ))}
+                                        </ul>
                                     </div>
-                                </motion.div>
-                            )}
-                        </div>
-                        <div className="code-line indent">
-                            <span className="token punctuation">{'}'}</span>
-                            {expIndex < experience.length - 1 && <span className="token punctuation">,</span>}
-                        </div>
-                    </motion.div>
-                ))}
+                                )}
+
+                                {highlights.length > 0 && (
+                                    <div className="experience-subsection">
+                                        <h4 className="subsection-title">Deep dives</h4>
+                                        <div className="highlight-grid">
+                                            {highlights.map((highlight, hlIndex) => (
+                                                <motion.article
+                                                    key={`${highlight.title}-${hlIndex}`}
+                                                    className="highlight-card"
+                                                    initial={{ opacity: 0, y: 12 }}
+                                                    whileInView={{ opacity: 1, y: 0 }}
+                                                    transition={{ delay: 0.12 + hlIndex * 0.06, duration: 0.4 }}
+                                                    viewport={{ once: true, amount: 0.2 }}
+                                                >
+                                                    <p className="highlight-title">{highlight.title}</p>
+                                                    <ul className="highlight-detail-list">
+                                                        {highlight.details.map((detail, detailIndex) => (
+                                                            <li key={`${detail}-${detailIndex}`}>{detail}</li>
+                                                        ))}
+                                                    </ul>
+                                                </motion.article>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {projects.length > 0 && (
+                                    <div className="experience-subsection">
+                                        <h4 className="subsection-title">Associated projects</h4>
+                                        <div className="mini-project-grid">
+                                            {projects.map((project, projIndex) => (
+                                                <article key={`${project.name}-${projIndex}`} className="mini-project-card">
+                                                    <p className="mini-project-title">{project.name}</p>
+                                                    <p className="mini-project-description">{project.description}</p>
+                                                </article>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        </motion.article>
+                    );
+                })}
             </div>
-            <div className="code-line">
-                <span className="token punctuation">]</span><span className="token punctuation">;</span>
-            </div>
-        </motion.div>
+        </motion.section>
     );
 };
 
-export default Experience; 
+export default Experience;

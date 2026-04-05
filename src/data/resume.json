@@ -1,31 +1,101 @@
 {
   "personalInfo": {
     "name": "Ranjeet Harishchandre",
-    "title": "Frontend Developer",
+    "title": "Software Engineer",
     "email": "ranjeetharishchandre@gmail.com",
     "phone": "+919960667293",
-    "location": ["Bangalore", "Pune", "Mumbai"],
+    "location": [
+      "Bangalore",
+      "Pune",
+      "Mumbai"
+    ],
     "github": "https://github.com/ranjeet-h",
-    "experience": 4.5,
+    "experience": 5,
     "image": "./linkedin_me_profile.jpeg"
   },
-  "summary": "As a professional Frontend Developer I have around 4.5 years of experience and, I possess expertise in React, Redux, Javascript, Zustand TypeScript, Next.js, SCSS, Tailwind CSS, and more. Throughout my career, I've contributed to over 35+ web projects, catering to a diverse range of clients from finance to e-commerce. Additionally, I've worked on DeFi projects and cryptocurrency trading platforms, expanding my knowledge in these domains.\n\nPassionate about web technologies, I adopt a continuous learning approach to enhance my skills. Currently, I'm immersing myself in Flutter and Dart, with future aspirations to delve into Blockchain Development.",
+  "summary": "As a Software Engineer, I build products across frontend, backend, and automation with a focus on clarity, performance, and maintainability. My daily stack spans React, Next.js, TypeScript, Node.js, Express, Python, FastAPI, Rust, MongoDB, MySQL, and Docker, so I can move comfortably between interfaces, APIs, and systems.\n\nSince Sep 2025, I have been working at Revel Healthtech in the healthcare domain, and over the last 7+ months I have been improving scheduling, manage visits, call logs, outreach, clinical team tools, search, navigation, and release quality. Across client work and public repositories, I have shipped 35+ products and 72 GitHub repositories covering healthcare, fintech, e-commerce, DeFi, tooling, and open-source experiments. I care about clean architecture, fast user experiences, and codebases that stay easy to extend.",
   "skills": {
-    "languages": ["JavaScript", "TypeScript", "HTML5", "CSS3", "SCSS"],
-    "frameworks": ["React", "Next.js", "Redux", "Zustand"],
-    "styling": ["TailwindCSS", "Chakra UI", "Ant Design"],
-    "tools": ["Vite", "Jest", "React Testing Library", "Git"],
-    "backend": ["Node.js", "MongoDB", "Mongoose"],
-    "spokenLanguages": ["English", "Hindi", "Marathi"]
+    "languages": [
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "Rust",
+      "HTML5",
+      "CSS3",
+      "SCSS"
+    ],
+    "frontend": [
+      "React",
+      "Next.js",
+      "Redux",
+      "Zustand",
+      "Framer Motion",
+      "Tailwind CSS"
+    ],
+    "backend": [
+      "Node.js",
+      "Express",
+      "FastAPI",
+      "REST APIs",
+      "WebSockets"
+    ],
+    "databases": [
+      "MongoDB",
+      "MySQL",
+      "SQLite",
+      "Mongoose"
+    ],
+    "infrastructure": [
+      "Docker",
+      "Vercel",
+      "Git",
+      "CI/CD"
+    ],
+    "tools": [
+      "Vite",
+      "Jest",
+      "React Testing Library",
+      "OpenAI APIs"
+    ]
   },
   "experience": [
     {
+      "company": "Revel Healthtech",
+      "position": "Software Engineer",
+      "duration": "2025-09-01 - Present",
+      "description": "Since Sep 2025, I have been building healthcare product experiences at Revel Healthtech. Over 7+ months, I have focused on making clinical and operations workflows faster, clearer, and more reliable across scheduling, visits, call logs, outreach, search, and navigation.",
+      "achievements": [
+        "Stabilized healthcare workflows across manage visits, scheduling, skip-appointment flows, call logs, outreach filters, and clinical-team screens.",
+        "Improved grid view behavior, search box UX, route flicker handling, and step navigation so care teams can move through the app with less friction.",
+        "Added automated test IDs and a pre-push hook to strengthen QA, catch regressions earlier, and make release validation more reliable.",
+        "Consolidated repeated bug fixes into shared flows to reduce duplication and keep the frontend easier to maintain across adjacent healthcare features."
+      ],
+      "highlights": [
+        {
+          "title": "Healthcare workflow reliability",
+          "details": [
+            "Refined visit management, scheduling, outreach, and skip-appointment screens",
+            "Reduced friction in call log and clinical team workflows",
+            "Kept the UI predictable for care-coordination tasks"
+          ]
+        },
+        {
+          "title": "Release readiness and QA",
+          "details": [
+            "Added automated test IDs to support stronger regression coverage",
+            "Introduced a pre-push hook for cleaner release validation",
+            "Grouped common bug fixes to avoid repeated implementation patterns"
+          ]
+        }
+      ]
+    },
+    {
       "company": "Recruiterflow",
       "position": "Frontend Developer",
-      "duration": "2022-08-28 - Present",
+      "duration": "2022-08-28 - 2025-08-31",
       "website": "https://recruiterflow.com/",
       "workType": "In Office",
-      "description": "At RecruiterFlow, I work as a Frontend Developer, focusing on building reusable components and developing web applications with cutting-edge features. These applications are utilized by thousands of users in their daily routines.",
+      "description": "At RecruiterFlow, I worked as a Frontend Developer, focusing on building reusable components and developing web applications with cutting-edge features. These applications were utilized by thousands of users in their daily routines.",
       "achievements": [
         "Redesigned the application form, which is used by more than 1 million people every week. Implemented React similarly to how Meta does it, by injecting it inside the webpage instead of building the entire page with React. This solution significantly increased the speed of the website.",
         "Implemented OpenAI and Bard APIs to automate text writing. Added the speech-to-action feature to enable users to perform actions using voice commands.",
@@ -112,76 +182,122 @@
   ],
   "projects": [
     {
-      "name": "PVP Collage Website",
-      "url": "https://pvpcollage-loni-webapp.vercel.app/",
-      "description": "I'm particularly proud of is the PVP Collage site, which I developed. It's a fully responsive website built using Next.js, Tailwind, and JavaScript.",
-      "tech": ["Next.js", "Tailwind CSS", "JavaScript"]
+      "name": "lipic-js",
+      "url": "https://github.com/ranjeet-h/lipic-js",
+      "description": "Fast transliteration for web text inputs with a JS/WASM hybrid runtime.",
+      "details": "Built to keep typing responsive while handling transliteration logic at the edge of the input experience.",
+      "tech": [
+        "TypeScript",
+        "WebAssembly",
+        "JavaScript"
+      ],
+      "language": "TypeScript",
+      "stars": 1,
+      "updated": "2026-02-08T03:41:10Z"
     },
     {
-      "name": "Local Network Chat",
+      "name": "LAN Chat App Rust",
       "url": "https://github.com/ranjeet-h/LAN-chat-app-rust",
-      "description": "A Rust-based chat application that allows users to message each other on the same local network without an internet connection. It automatically discovers other users and provides a private, secure, and direct peer-to-peer connection.",
-      "learning": "This project was a deep dive into Rust, focusing on local network discovery, peer-to-peer communication, and building a fast, reliable, and privacy-focused application without a central server.",
-      "tech": ["Rust"]
+      "description": "A Rust-based chat app for private messaging on the same local network with automatic peer discovery.",
+      "details": "Explores peer-to-peer discovery, local-first messaging, and serverless communication patterns in Rust.",
+      "tech": [
+        "Rust",
+        "Networking",
+        "Peer discovery"
+      ],
+      "language": "Rust",
+      "stars": 1,
+      "updated": "2026-04-01T23:18:09Z"
     },
     {
-      "name": "SciNotepad",
-      "url": "https://github.com/ranjeet-h/sci-editor",
-      "website": "https://sci-editor.vercel.app/",
-      "description": "A web-based notepad that performs instant calculations, supports variables, and includes a built-in plotting feature for visualizing mathematical functions. It's designed to be a powerful, user-friendly tool without relying on AI.",
-      "details": "Engineered for a seamless experience with features like multi-notebook management, automatic saving, a responsive design for all devices, and extensive keyboard shortcuts.",
-      "tech": ["React", "TypeScript", "Vite", "Math.js"]
+      "name": "ProShop MERN eCommerce",
+      "url": "https://github.com/ranjeet-h/ProShop_MERN_eCommerce",
+      "description": "A MERN e-commerce build that covers product browsing, cart flows, and backend-driven commerce logic.",
+      "details": "Represents full-stack work across React, Node.js, Express, and MongoDB for product-led web applications.",
+      "tech": [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB"
+      ],
+      "language": "JavaScript",
+      "stars": 1,
+      "updated": "2021-12-25T05:50:07Z"
     },
     {
       "name": "Rust Web Scraper",
       "url": "https://github.com/ranjeet-h/rust-based-scrapper",
-      "description": "A web scraping application built with a Rust backend (Axum, SQLite) and a Rust-based frontend (egui) that runs natively and on the web via WebAssembly. It leverages Firecrawl for scraping and was built in collaboration with a partner who handled LLM-based scraping.",
-      "learning": "This was my first major Rust project, providing hands-on experience with building a full-stack application, including a backend API, a native GUI, and a WebAssembly frontend.",
-      "tech": ["Rust", "Axum", "SQLite", "egui", "WebAssembly", "Firecrawl"]
+      "description": "A web scraping app built with Rust backend, Rust GUI, and WebAssembly frontend.",
+      "details": "Uses Axum, SQLite, egui, and Firecrawl to explore native and web-delivered Rust tooling.",
+      "tech": [
+        "Rust",
+        "Axum",
+        "SQLite",
+        "WebAssembly",
+        "egui"
+      ],
+      "language": "Rust",
+      "stars": 0,
+      "updated": "2025-04-22T14:28:57Z"
     },
     {
       "name": "AI Question Paper Solver",
       "url": "https://github.com/ranjeet-h/QP-solver",
-      "description": "A full-stack, AI-powered mobile app for iOS and Android that solves question papers. Built in just 48 hours, it demonstrates rapid development by augmenting human developers with an AI coding assistant.",
-      "details": "The app features core LLM integration, user plans with mock payment flows, and essential mobile navigation. This project showcased how to orchestrate AI tools to accelerate development from concept to a working product.",
-      "tech": ["React Native", "LLM", "AI"]
+      "description": "A full-stack, AI-powered mobile app that solves question papers and accelerates workflow.",
+      "details": "Built in 48 hours to show how AI-assisted development can ship production-feeling mobile products quickly.",
+      "tech": [
+        "React Native",
+        "TypeScript",
+        "AI"
+      ],
+      "language": "TypeScript",
+      "stars": 0,
+      "updated": "2025-04-13T08:47:50Z"
     },
     {
       "name": "Can I Eat",
       "url": "https://github.com/ranjeet-h/can-i-eat",
-      "description": "An AI-assisted application designed to transform complex food labels into simple, easy-to-understand information. It provides visual health ratings, detailed ingredient analysis with allergen warnings, and a community contribution system.",
-      "learning": "This project demonstrated the power of AI agents in handling complex full-stack development. Key takeaways include the importance of mobile-first design for in-store scanning and the need for robust verification systems in community-driven applications.",
+      "description": "An AI-assisted app that turns complex food labels into simple, visual health insights.",
+      "details": "Focused on mobile-first scanning, allergen clarity, and community-driven label intelligence.",
       "tech": [
         "React",
         "TypeScript",
-        "HeadlessUI",
-        "Zustand",
         "Supabase",
         "Framer Motion"
-      ]
+      ],
+      "language": "TypeScript",
+      "stars": 0,
+      "updated": "2025-03-09T13:02:11Z"
     },
     {
-      "name": "Algo-Visualized",
+      "name": "Algo Visualizer",
       "url": "https://github.com/ranjeet-h/algo-visualizer",
       "website": "https://algo-visualizer-lilac.vercel.app/",
-      "description": "An interactive platform built in a single weekend with AI agents to visualize complex data structures and algorithms, including arrays, linked lists, hash tables, and sorting algorithms.",
-      "learning": "This project was an experiment in AI-assisted development, proving that human creativity paired with AI implementation can drastically reduce development time while maintaining high quality. The future of development is collaboration with AI.",
-      "tech": ["React", "TypeScript", "Vite"]
-    },
-    {
-      "name": "Mauli CSP",
-      "description": "I have built the Customer Support Portal as SaaS software. This website is focused on small and medium-sized shops, where shopkeepers can add entries for new products, sales, and track borrowings. The main focus was to provide easy access to statistics on inventory and sales.",
-      "details": "Here I have solo developed full backend and frontend both. I used React, TypeScript, Vite, and Ant Design for frontend, and for the backend, I have used Node.js, MongoDB, Mongoose, etc.",
-      "learning": "While building this project, the main learning was how to develop the project that is scalable and how to plan from the start so that it will be easy to add and remove big features. This project is a tremendous achievement for me, and I am still working to improve the project and add more features to it.",
+      "description": "An interactive platform for visualizing data structures and algorithms.",
+      "details": "Built to make arrays, linked lists, hash tables, and sorting algorithms easier to understand through motion.",
       "tech": [
         "React",
         "TypeScript",
         "Vite",
-        "Ant Design",
-        "Node.js",
-        "MongoDB",
-        "Mongoose"
-      ]
+        "Framer Motion"
+      ],
+      "language": "TypeScript",
+      "stars": 0,
+      "updated": "2025-05-07T03:32:18Z"
+    },
+    {
+      "name": "Scripting and Web Scraping",
+      "url": "https://github.com/ranjeet-h/Scripting-and-Web-Scraping",
+      "description": "Python scripting and web scraping utilities.",
+      "details": "Covers automation-minded workflows, data extraction, and lightweight Python tooling.",
+      "tech": [
+        "Python",
+        "Automation",
+        "Scraping"
+      ],
+      "language": "Python",
+      "stars": 1,
+      "updated": "2021-12-25T05:50:25Z"
     }
   ],
   "languages": [

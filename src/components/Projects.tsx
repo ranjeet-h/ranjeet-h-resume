@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { sectionVariants } from './animation';
+import { containerVariants, itemVariants, sectionVariants } from './animation';
 
 interface Project {
     name: string;
@@ -9,128 +9,129 @@ interface Project {
     details?: string;
     learning?: string;
     tech: string[];
+    language?: string;
+    stars?: number;
+    updated?: string;
 }
 
 interface ProjectsProps {
     projects: Project[];
 }
 
+interface ProjectLink {
+    label: string;
+    href: string;
+}
+
+const repoUpdatedFormatter = new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+});
+
+const getProjectLinks = (project: Project): ProjectLink[] => {
+    const links: ProjectLink[] = [];
+
+    if (project.website) {
+        links.push({ label: 'Live', href: project.website });
+    }
+
+    if (project.url) {
+        links.push({ label: project.website ? 'Code' : project.url.includes('github.com') ? 'Code' : 'Open', href: project.url });
+    }
+
+    return links;
+};
+
+const formatRepositoryUpdated = (value?: string) => {
+    if (!value) {
+        return null;
+    }
+
+    const parsedDate = new Date(value);
+    if (Number.isNaN(parsedDate.getTime())) {
+        return null;
+    }
+
+    return `Updated ${repoUpdatedFormatter.format(parsedDate)}`;
+};
+
 const Projects = ({ projects }: ProjectsProps) => {
     return (
-        <motion.div
-            className="code-section full-width"
-            variants={sectionVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-        >
-            <div className="section-header">
-                <span className="token comment">// Personal Projects</span>
+        <motion.section className="panel projects-panel" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} aria-labelledby="projects-title">
+            <div className="panel-head">
+                <p className="section-kicker">Repositories</p>
+                <h2 id="projects-title" className="section-title">
+                    Featured repositories
+                </h2>
+                <p className="section-copy">Selected repositories that show frontend, backend, and tooling breadth.</p>
             </div>
-            <div className="code-line">
-                <span className="token keyword">const</span> <span className="token variable">projects</span> <span className="token operator">=</span> <span className="token punctuation">[</span>
-            </div>
-            <div className="code-block">
-                {projects.map((project, projIndex) => (
-                    <motion.div
-                        key={projIndex}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: projIndex * 0.3, duration: 0.8 }}
-                    >
-                        <div className="code-line indent">
-                            <span className="token punctuation">{'{'}</span>
-                        </div>
-                        <div className="code-block">
-                            <motion.div
-                                className="code-line indent2"
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.1 }}
-                            >
-                                <span className="token property">name</span><span className="token punctuation">:</span> <span className="token string">"{project.name}"</span><span className="token punctuation">,</span>
-                            </motion.div>
-                            {project.url && (
-                                <motion.div
-                                    className="code-line indent2"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.2 }}
-                                >
-                                    <span className="token property">url</span><span className="token punctuation">:</span> <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} - GitHub Repository`}><span className="token string">"{project.url}"</span></a><span className="token punctuation">,</span>
-                                </motion.div>
+
+            <motion.div className="project-grid" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
+                {projects.map((project, index) => {
+                    const links = getProjectLinks(project);
+                    const note = project.details ?? project.learning;
+                    const metadata = [
+                        project.language,
+                        typeof project.stars === 'number' && project.stars > 0 ? `★ ${project.stars}` : null,
+                        formatRepositoryUpdated(project.updated),
+                    ].filter((item): item is string => Boolean(item));
+
+                    return (
+                        <motion.article
+                            key={project.name}
+                            className="project-card"
+                            variants={itemVariants}
+                            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                        >
+                            <div className="project-card-head">
+                                <span className="project-index">{String(index + 1).padStart(2, '0')}</span>
+                                <div className="project-card-heading">
+                                    <p className="project-type">Public repository</p>
+                                    <h3 className="project-title">{project.name}</h3>
+                                </div>
+                            </div>
+
+                            {metadata.length > 0 && (
+                                <div className="project-tech-list">
+                                    {metadata.map((item) => (
+                                        <span key={`${project.name}-${item}`} className="meta-chip">
+                                            {item}
+                                        </span>
+                                    ))}
+                                </div>
                             )}
-                            {project.website && (
-                                <motion.div
-                                    className="code-line indent2"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.2 }}
-                                >
-                                    <span className="token property">website</span><span className="token punctuation">:</span> <a href={project.website} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} - Live Website`}><span className="token string">"{project.website}"</span></a><span className="token punctuation">,</span>
-                                </motion.div>
-                            )}
-                            <motion.div
-                                className="code-line indent2"
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.3 }}
-                            >
-                                <span className="token property">description</span><span className="token punctuation">:</span> <span className="token string">"{project.description}"</span><span className="token punctuation">,</span>
-                            </motion.div>
-                            {project.details && (
-                                <motion.div
-                                    className="code-line indent2"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.4 }}
-                                >
-                                    <span className="token property">details</span><span className="token punctuation">:</span> <span className="token string">"{project.details}"</span><span className="token punctuation">,</span>
-                                </motion.div>
-                            )}
-                            {project.learning && (
-                                <motion.div
-                                    className="code-line indent2"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.5 }}
-                                >
-                                    <span className="token property">learning</span><span className="token punctuation">:</span> <span className="token string">"{project.learning}"</span><span className="token punctuation">,</span>
-                                </motion.div>
-                            )}
-                            <motion.div
-                                className="code-line indent2"
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.6 }}
-                            >
-                                <span className="token property">tech</span><span className="token punctuation">:</span> <span className="token punctuation">[</span>
-                                {project.tech.map((tech, techIndex) => (
-                                    <motion.span
-                                        key={techIndex}
-                                        initial={{ opacity: 0, scale: 0.8 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
-                                        transition={{ delay: 0.7 + techIndex * 0.05 }}
-                                    >
-                                        <span className="token string">"{tech}"</span>
-                                        {techIndex < project.tech.length - 1 && <span className="token punctuation">, </span>}
-                                    </motion.span>
-                                ))}
-                                <span className="token punctuation">]</span>
-                            </motion.div>
-                        </div>
-                        <div className="code-line indent">
-                            <span className="token punctuation">{'}'}</span>
-                            {projIndex < projects.length - 1 && <span className="token punctuation">,</span>}
-                        </div>
-                    </motion.div>
-                ))}
-            </div>
-            <div className="code-line">
-                <span className="token punctuation">]</span><span className="token punctuation">;</span>
-            </div>
-        </motion.div>
+
+                            <p className="project-description">{project.description}</p>
+                            {note && <p className="project-note">{note}</p>}
+
+                            <div className="project-foot">
+                                <div className="project-tech-list">
+                                    {project.tech.map((tech) => (
+                                        <span key={tech} className="project-tech-chip">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <div className="project-links">
+                                    {links.length > 0 ? (
+                                        links.map((link) => (
+                                            <a key={`${project.name}-${link.label}`} className="project-link" href={link.href} target="_blank" rel="noopener noreferrer">
+                                                {link.label}
+                                            </a>
+                                        ))
+                                    ) : (
+                                        <span className="project-link project-link-static">Case study</span>
+                                    )}
+                                </div>
+                            </div>
+                        </motion.article>
+                    );
+                })}
+            </motion.div>
+        </motion.section>
     );
 };
 
-export default Projects; 
+export default Projects;
