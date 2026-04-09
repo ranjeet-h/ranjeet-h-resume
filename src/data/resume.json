@@ -182,6 +182,24 @@
   ],
   "projects": [
     {
+      "name": "Narrator",
+      "url": "https://github.com/ranjeet-h/narrator",
+      "publicationUrl": "https://zenodo.org/records/18671099",
+      "description": "A published research paper and local-first audiobook system that generates narrated audio directly on end devices.",
+      "details": "Published on Zenodo as 'Audiobook Creation on End Devices: A Local-First Generation Framework'. Narrator uses a deterministic seven-stage pipeline (INGEST, ANALYZE, CLEAN, SEGMENT, SYNTHESIZE, MASTER, PACKAGE) with Docling-based document conversion, Kokoro TTS, FFmpeg mastering, FastAPI/SQLModel orchestration, and durable SQLite state for restartable on-demand audiobook generation.",
+      "tech": [
+        "Python",
+        "FastAPI",
+        "SQLModel",
+        "Docling",
+        "Kokoro TTS",
+        "FFmpeg"
+      ],
+      "language": "Python",
+      "stars": 0,
+      "updated": "2026-03-11T11:09:24Z"
+    },
+    {
       "name": "lipic-js",
       "url": "https://github.com/ranjeet-h/lipic-js",
       "description": "Fast transliteration for web text inputs with a JS/WASM hybrid runtime.",

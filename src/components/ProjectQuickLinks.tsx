@@ -5,39 +5,48 @@ interface Project {
     name: string;
     url?: string;
     website?: string;
+    publicationUrl?: string;
 }
 
 interface ProjectQuickLinksProps {
     projects: Project[];
 }
 
-const getProjectHref = (project: Project) => project.website || project.url;
+const getProjectHref = (project: Project) => project.publicationUrl || project.website || project.url;
 
-const getProjectLabel = (href?: string) => {
-    if (!href) {
+const getProjectLabel = (project: Project) => {
+    if (project.publicationUrl) {
+        return 'Paper';
+    }
+
+    if (project.website) {
+        return 'Live';
+    }
+
+    if (!project.url) {
         return 'Case study';
     }
 
-    return href.includes('github.com') ? 'Code' : 'Live';
+    return project.url.includes('github.com') ? 'Code' : 'Open';
 };
 
 const ProjectQuickLinks = ({ projects }: ProjectQuickLinksProps) => {
     const featuredProjects = projects.slice(0, 6);
 
     return (
-        <motion.section className="panel project-rail" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} aria-labelledby="repositories-title">
+        <motion.section className="panel project-rail" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} aria-labelledby="projects-rail-title">
             <div className="panel-head">
-                <p className="section-kicker">Repositories</p>
-                <h2 id="repositories-title" className="section-title">
-                    Fast access to the repositories I want people to see first
+                <p className="section-kicker">Projects</p>
+                <h2 id="projects-rail-title" className="section-title">
+                    Fast access to the projects I want people to see first
                 </h2>
-                <p className="section-copy">A quicker way to jump from the story to the code or a live build.</p>
+                <p className="section-copy">A quicker way to jump from the story to the paper, code, or a live build.</p>
             </div>
 
             <motion.div className="project-rail-grid" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }}>
                 {featuredProjects.map((project, index) => {
                     const href = getProjectHref(project);
-                    const label = getProjectLabel(href);
+                    const label = getProjectLabel(project);
                     const content = (
                         <>
                             <div className="project-rail-header">
