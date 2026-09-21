@@ -64,7 +64,7 @@ const Experience = ({ experience }: ExperienceProps) => {
         <motion.section className="panel experience-panel" aria-labelledby="experience-title">
             <div className="panel-head">
                 <p className="section-kicker">Experience</p>
-                <h2 id="experience-title" className="section-title">
+                <h2 id="experience-title" className="section-title" tabIndex={-1}>
                     Professional experience
                 </h2>
                 <p className="section-copy">Roles and contributions across frontend and backend engineering.</p>
@@ -80,7 +80,7 @@ const Experience = ({ experience }: ExperienceProps) => {
                         <motion.article
                             key={`${exp.company}-${exp.position}`}
                             className="experience-item"
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 1, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: expIndex * 0.08, duration: 0.45 }}
                             viewport={{ once: true, amount: 0.05 }}

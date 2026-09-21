@@ -16,7 +16,7 @@ const Skills = ({ skills }: SkillsProps) => {
         <motion.section className="panel skills-panel" aria-labelledby="skills-title">
             <div className="panel-head">
                 <p className="section-kicker">Capabilities</p>
-                <h2 id="skills-title" className="section-title">
+                <h2 id="skills-title" className="section-title" tabIndex={-1}>
                     Technical skills
                 </h2>
                 <p className="section-copy">Technologies across frontend, backend, data, and infrastructure.</p>

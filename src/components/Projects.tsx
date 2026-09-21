@@ -71,7 +71,7 @@ const Projects = ({ projects }: ProjectsProps) => {
         <motion.section className="panel projects-panel" aria-labelledby="projects-title">
             <div className="panel-head">
                 <p className="section-kicker">Projects</p>
-                <h2 id="projects-title" className="section-title">
+                <h2 id="projects-title" className="section-title" tabIndex={-1}>
                     All projects
                 </h2>
                 <p className="section-copy">Open-source applications and libraries, published research, and selected private work.</p>
@@ -96,7 +96,7 @@ const Projects = ({ projects }: ProjectsProps) => {
                         <motion.article
                             key={project.name}
                             className="project-card"
-                            initial={{ opacity: 0, y: 12, scale: 0.985 }}
+                            initial={{ opacity: 1, y: 12, scale: 0.985 }}
                             whileInView={{ opacity: 1, y: 0, scale: 1 }}
                             viewport={{ once: true, amount: 0.1 }}
                             transition={{ delay: (index % 2) * 0.05, duration: 0.36 }}

@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import resumeData from './data/resume.json';
-import { motion, useScroll, useSpring } from 'motion/react';
+import { MotionConfig, motion, useScroll, useSpring } from 'motion/react';
 import Header from './components/Header';
 import PersonalInfo from './components/PersonalInfo';
 import Skills from './components/Skills';
@@ -11,6 +11,13 @@ import Projects from './components/Projects';
 import ProjectQuickLinks from './components/ProjectQuickLinks';
 
 type Theme = 'light' | 'dark';
+
+const portfolioSections = [
+    { label: 'About', href: '#profile-title' },
+    { label: 'Skills', href: '#skills-title' },
+    { label: 'Experience', href: '#experience-title' },
+    { label: 'Projects', href: '#projects-title' },
+];
 
 interface HeroStat {
     label: string;
@@ -54,28 +61,38 @@ const ThemeSwitcher = ({ theme, toggleTheme }: { theme: Theme; toggleTheme: () =
 
 const PortfolioNav = ({ theme, toggleTheme }: { theme: Theme; toggleTheme: () => void }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const menuToggleRef = useRef<HTMLButtonElement>(null);
     const closeMenu = () => setIsMenuOpen(false);
+    const focusSection = (href: string) => {
+        closeMenu();
+        window.requestAnimationFrame(() => {
+            document.getElementById(href.slice(1))?.focus({ preventScroll: true });
+        });
+    };
 
     return (
         <header
             className={`topbar${isMenuOpen ? ' topbar-menu-open' : ''}`}
             id="top"
             onKeyDown={(event) => {
-                if (event.key === 'Escape') closeMenu();
+                if (event.key === 'Escape' && isMenuOpen) {
+                    closeMenu();
+                    menuToggleRef.current?.focus();
+                }
             }}
         >
             <a className="brand-lockup" href="#main" aria-label="Ranjeet Harishchandre, portfolio home" onClick={closeMenu}>
                 <span className="brand-kicker">Portfolio</span>
                 <span className="brand-title">Ranjeet Harishchandre</span>
             </a>
-            <nav className={`topbar-nav${isMenuOpen ? ' topbar-nav-open' : ''}`} id="portfolio-mobile-nav" aria-label="Portfolio sections">
-                <a className="topbar-link" href="#profile-title" onClick={closeMenu}>About</a>
-                <a className="topbar-link" href="#skills-title" onClick={closeMenu}>Skills</a>
-                <a className="topbar-link" href="#experience-title" onClick={closeMenu}>Experience</a>
-                <a className="topbar-link" href="#projects-title" onClick={closeMenu}>Projects</a>
+            <nav className="topbar-nav topbar-nav-desktop" aria-label="Portfolio sections">
+                {portfolioSections.map(({ label, href }) => (
+                    <a key={href} className="topbar-link" href={href} onClick={() => focusSection(href)}>{label}</a>
+                ))}
             </nav>
             <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
             <button
+                ref={menuToggleRef}
                 type="button"
                 className="topbar-menu-toggle"
                 onClick={() => setIsMenuOpen((open) => !open)}
@@ -87,6 +104,15 @@ const PortfolioNav = ({ theme, toggleTheme }: { theme: Theme; toggleTheme: () =>
                     {isMenuOpen ? <path d="m6 6 12 12M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
                 </svg>
             </button>
+            <nav
+                className={`topbar-nav topbar-nav-mobile${isMenuOpen ? ' topbar-nav-open' : ''}`}
+                id="portfolio-mobile-nav"
+                aria-label="Mobile portfolio sections"
+            >
+                {portfolioSections.map(({ label, href }) => (
+                    <a key={href} className="topbar-link" href={href} onClick={() => focusSection(href)}>{label}</a>
+                ))}
+            </nav>
         </header>
     );
 };
@@ -137,35 +163,37 @@ const App = () => {
     const focusAreas = ['Healthcare', 'Clinical ops', 'Backend APIs', 'Open source'];
 
     return (
-        <div className="page-shell">
-            <a className="sr-only-focusable" href="#main">
-                Skip to main content
-            </a>
-            <div className="scroll-progress-track" aria-hidden="true">
-                <motion.div className="scroll-progress-bar" style={{ scaleX: pageProgress }} />
-            </div>
-            <div className="page-orb page-orb-one" aria-hidden="true" />
-            <div className="page-orb page-orb-two" aria-hidden="true" />
-            <PortfolioNav theme={theme} toggleTheme={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))} />
-
-            <main id="main" className="page-container">
-                <Header
-                    personalInfo={resumeData.personalInfo}
-                    summary={resumeData.summary}
-                    stats={heroStats}
-                    focusAreas={focusAreas}
-                />
-                <ProjectQuickLinks projects={resumeData.projects} />
-
-                <div className="content-grid">
-                    <PersonalInfo personalInfo={resumeData.personalInfo} />
-                    <Skills skills={resumeData.skills} />
-                    <Experience experience={resumeData.experience} />
-                    <Education education={resumeData.education} />
-                    <Projects projects={resumeData.projects} />
+        <MotionConfig reducedMotion="user">
+            <div className="page-shell">
+                <a className="sr-only-focusable" href="#main">
+                    Skip to main content
+                </a>
+                <div className="scroll-progress-track" aria-hidden="true">
+                    <motion.div className="scroll-progress-bar" style={{ scaleX: pageProgress }} />
                 </div>
-            </main>
-        </div>
+                <div className="page-orb page-orb-one" aria-hidden="true" />
+                <div className="page-orb page-orb-two" aria-hidden="true" />
+                <PortfolioNav theme={theme} toggleTheme={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))} />
+
+                <main id="main" className="page-container" tabIndex={-1}>
+                    <Header
+                        personalInfo={resumeData.personalInfo}
+                        summary={resumeData.summary}
+                        stats={heroStats}
+                        focusAreas={focusAreas}
+                    />
+                    <ProjectQuickLinks projects={resumeData.projects} />
+
+                    <div className="content-grid">
+                        <PersonalInfo personalInfo={resumeData.personalInfo} />
+                        <Skills skills={resumeData.skills} />
+                        <Experience experience={resumeData.experience} />
+                        <Education education={resumeData.education} />
+                        <Projects projects={resumeData.projects} />
+                    </div>
+                </main>
+            </div>
+        </MotionConfig>
     );
 };
 

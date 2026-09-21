@@ -1,7 +1,7 @@
 const springEase = [0.22, 1, 0.36, 1] as const;
 
 export const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
         opacity: 1,
         transition: {
@@ -13,7 +13,7 @@ export const containerVariants = {
 
 export const sectionVariants = {
     hidden: {
-        opacity: 0,
+        opacity: 1,
         y: 22,
         scale: 0.98,
     },
@@ -32,7 +32,7 @@ export const sectionVariants = {
 
 export const scrollVariants = {
     hidden: {
-        opacity: 0,
+        opacity: 1,
         y: 26,
         scale: 0.98,
     },
@@ -51,7 +51,7 @@ export const scrollVariants = {
 
 export const headerVariants = {
     hidden: {
-        opacity: 0,
+        opacity: 1,
         y: 16,
     },
     visible: {
@@ -68,7 +68,7 @@ export const headerVariants = {
 
 export const profileImageVariants = {
     hidden: {
-        opacity: 0,
+        opacity: 1,
         x: -20,
         scale: 0.97,
         rotate: 0,
@@ -87,7 +87,7 @@ export const profileImageVariants = {
 
 export const textVariants = {
     hidden: {
-        opacity: 0,
+        opacity: 1,
         y: 14,
     },
     visible: {
@@ -104,7 +104,7 @@ export const textVariants = {
 
 export const statsVariants = {
     hidden: {
-        opacity: 0,
+        opacity: 1,
         y: 12,
     },
     visible: {
@@ -121,7 +121,7 @@ export const statsVariants = {
 
 export const itemVariants = {
     hidden: {
-        opacity: 0,
+        opacity: 1,
         y: 12,
         scale: 0.985,
     },

@@ -40,7 +40,7 @@ const PersonalInfo = ({ personalInfo }: PersonalInfoProps) => {
         <motion.section className="panel personal-panel" aria-labelledby="profile-title">
             <div className="panel-head">
                 <p className="section-kicker">About</p>
-                <h2 id="profile-title" className="section-title">
+                <h2 id="profile-title" className="section-title" tabIndex={-1}>
                     Profile & contact
                 </h2>
                 <p className="section-copy">Role, location, and contact details.</p>

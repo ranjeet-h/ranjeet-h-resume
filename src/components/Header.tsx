@@ -91,6 +91,8 @@ const Header = ({ personalInfo, summary, stats, focusAreas }: HeaderProps) => {
                         src={personalInfo.image}
                         alt={`${personalInfo.name} portrait`}
                         className="portrait-image"
+                        width={400}
+                        height={400}
                         decoding="async"
                         fetchPriority="high"
                     />

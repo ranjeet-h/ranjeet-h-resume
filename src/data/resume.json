@@ -10,7 +10,7 @@
       "Mumbai"
     ],
     "github": "https://github.com/ranjeet-h",
-    "experience": 5,
+    "experience": 6,
     "image": "./linkedin_me_profile.jpeg"
   },
   "summary": "As a Software Engineer, I build products across frontend, backend, and automation with a focus on clarity, performance, and maintainability. My daily stack spans React, Next.js, TypeScript, Node.js, Express, Python, FastAPI, Rust, MongoDB, MySQL, and Docker, so I can move comfortably between interfaces, APIs, and systems.\n\nSince Sep 2025, I have been working at Revel Healthtech in the healthcare domain, and over the past year I have been improving scheduling, manage visits, call logs, outreach, clinical team tools, search, navigation, and release quality. Across client work and public repositories, I have shipped 35+ products spanning healthcare, fintech, e-commerce, DeFi, developer tooling, and open-source experiments. I care about clean architecture, fast user experiences, and codebases that stay easy to extend.",
@@ -63,7 +63,7 @@
       "company": "Revel Healthtech",
       "position": "Software Engineer",
       "duration": "2025-09-01 - Present",
-      "description": "Since Sep 2025, I have been building healthcare product experiences at Revel Healthtech. Over 7+ months, I have focused on making clinical and operations workflows faster, clearer, and more reliable across scheduling, visits, call logs, outreach, search, and navigation.",
+      "description": "Since Sep 2025, I have been building healthcare product experiences at Revel Healthtech. Over the past year, I have focused on making clinical and operations workflows faster, clearer, and more reliable across scheduling, visits, call logs, outreach, search, and navigation.",
       "achievements": [
         "Stabilized healthcare workflows across manage visits, scheduling, skip-appointment flows, call logs, outreach filters, and clinical-team screens.",
         "Improved grid view behavior, search box UX, route flicker handling, and step navigation so care teams can move through the app with less friction.",
