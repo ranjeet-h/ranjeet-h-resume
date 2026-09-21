@@ -1,11 +1,12 @@
 import { motion } from 'motion/react';
-import { containerVariants, itemVariants, sectionVariants } from './animation';
 
 interface Project {
     name: string;
     url?: string;
     website?: string;
     publicationUrl?: string;
+    visibility?: string;
+    extraLinks?: ProjectLink[];
     description: string;
     details?: string;
     learning?: string;
@@ -45,6 +46,10 @@ const getProjectLinks = (project: Project): ProjectLink[] => {
         links.push({ label: project.website || project.publicationUrl ? 'Code' : project.url.includes('github.com') ? 'Code' : 'Open', href: project.url });
     }
 
+    if (project.extraLinks) {
+        links.push(...project.extraLinks);
+    }
+
     return links;
 };
 
@@ -63,20 +68,24 @@ const formatRepositoryUpdated = (value?: string) => {
 
 const Projects = ({ projects }: ProjectsProps) => {
     return (
-        <motion.section className="panel projects-panel" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} aria-labelledby="projects-title">
+        <motion.section className="panel projects-panel" aria-labelledby="projects-title">
             <div className="panel-head">
                 <p className="section-kicker">Projects</p>
                 <h2 id="projects-title" className="section-title">
-                    Featured projects
+                    All projects
                 </h2>
-                <p className="section-copy">Selected projects and publications that show frontend, backend, and tooling breadth.</p>
+                <p className="section-copy">Open-source applications and libraries, published research, and selected private work.</p>
             </div>
 
-            <motion.div className="project-grid" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
+            <div className="project-grid">
                 {projects.map((project, index) => {
                     const links = getProjectLinks(project);
                     const note = project.details ?? project.learning;
-                    const projectType = project.publicationUrl ? 'Published research paper' : 'Public repository';
+                    const projectType = project.publicationUrl
+                        ? 'Published research paper'
+                        : project.visibility === 'private'
+                          ? 'Private case study'
+                          : 'Open-source project';
                     const metadata = [
                         project.language,
                         typeof project.stars === 'number' && project.stars > 0 ? `★ ${project.stars}` : null,
@@ -87,7 +96,10 @@ const Projects = ({ projects }: ProjectsProps) => {
                         <motion.article
                             key={project.name}
                             className="project-card"
-                            variants={itemVariants}
+                            initial={{ opacity: 0, y: 12, scale: 0.985 }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                            viewport={{ once: true, amount: 0.1 }}
+                            transition={{ delay: (index % 2) * 0.05, duration: 0.36 }}
                             whileHover={{ y: -4, transition: { duration: 0.2 } }}
                         >
                             <div className="project-card-head">
@@ -135,7 +147,7 @@ const Projects = ({ projects }: ProjectsProps) => {
                         </motion.article>
                     );
                 })}
-            </motion.div>
+            </div>
         </motion.section>
     );
 };

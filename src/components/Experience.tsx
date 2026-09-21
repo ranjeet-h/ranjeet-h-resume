@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import { scrollVariants } from './animation';
 
 interface Project {
     name: string;
@@ -62,13 +61,13 @@ const formatDuration = (duration: string) => {
 
 const Experience = ({ experience }: ExperienceProps) => {
     return (
-        <motion.section className="panel experience-panel" variants={scrollVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.12 }} aria-labelledby="experience-title">
+        <motion.section className="panel experience-panel" aria-labelledby="experience-title">
             <div className="panel-head">
                 <p className="section-kicker">Experience</p>
                 <h2 id="experience-title" className="section-title">
-                    What I've shipped across the last 5+ years
+                    Professional experience
                 </h2>
-                <p className="section-copy">Roles, impact, and technical depth across frontend and backend systems.</p>
+                <p className="section-copy">Roles and contributions across frontend and backend engineering.</p>
             </div>
 
             <div className="experience-listing">
@@ -84,7 +83,7 @@ const Experience = ({ experience }: ExperienceProps) => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: expIndex * 0.08, duration: 0.45 }}
-                            viewport={{ once: true, amount: 0.2 }}
+                            viewport={{ once: true, amount: 0.05 }}
                         >
                             <div className="experience-marker">{String(expIndex + 1).padStart(2, '0')}</div>
 
@@ -113,17 +112,10 @@ const Experience = ({ experience }: ExperienceProps) => {
                                         <h4 className="subsection-title">Impact</h4>
                                         <ul className="achievement-list">
                                             {achievements.map((achievement, achIndex) => (
-                                                <motion.li
-                                                    key={`${achievement}-${achIndex}`}
-                                                    className="achievement-card"
-                                                    initial={{ opacity: 0, y: 10 }}
-                                                    whileInView={{ opacity: 1, y: 0 }}
-                                                    transition={{ delay: 0.12 + achIndex * 0.05, duration: 0.35 }}
-                                                    viewport={{ once: true, amount: 0.2 }}
-                                                >
+                                                <li key={`${achievement}-${achIndex}`} className="achievement-card">
                                                     <span className="achievement-index">{String(achIndex + 1).padStart(2, '0')}</span>
                                                     <p>{achievement}</p>
-                                                </motion.li>
+                                                </li>
                                             ))}
                                         </ul>
                                     </div>
@@ -134,21 +126,14 @@ const Experience = ({ experience }: ExperienceProps) => {
                                         <h4 className="subsection-title">Deep dives</h4>
                                         <div className="highlight-grid">
                                             {highlights.map((highlight, hlIndex) => (
-                                                <motion.article
-                                                    key={`${highlight.title}-${hlIndex}`}
-                                                    className="highlight-card"
-                                                    initial={{ opacity: 0, y: 12 }}
-                                                    whileInView={{ opacity: 1, y: 0 }}
-                                                    transition={{ delay: 0.12 + hlIndex * 0.06, duration: 0.4 }}
-                                                    viewport={{ once: true, amount: 0.2 }}
-                                                >
+                                                <article key={`${highlight.title}-${hlIndex}`} className="highlight-card">
                                                     <p className="highlight-title">{highlight.title}</p>
                                                     <ul className="highlight-detail-list">
                                                         {highlight.details.map((detail, detailIndex) => (
                                                             <li key={`${detail}-${detailIndex}`}>{detail}</li>
                                                         ))}
                                                     </ul>
-                                                </motion.article>
+                                                </article>
                                             ))}
                                         </div>
                                     </div>

@@ -13,7 +13,7 @@
     "experience": 5,
     "image": "./linkedin_me_profile.jpeg"
   },
-  "summary": "As a Software Engineer, I build products across frontend, backend, and automation with a focus on clarity, performance, and maintainability. My daily stack spans React, Next.js, TypeScript, Node.js, Express, Python, FastAPI, Rust, MongoDB, MySQL, and Docker, so I can move comfortably between interfaces, APIs, and systems.\n\nSince Sep 2025, I have been working at Revel Healthtech in the healthcare domain, and over the last 7+ months I have been improving scheduling, manage visits, call logs, outreach, clinical team tools, search, navigation, and release quality. Across client work and public repositories, I have shipped 35+ products and 72 GitHub repositories covering healthcare, fintech, e-commerce, DeFi, tooling, and open-source experiments. I care about clean architecture, fast user experiences, and codebases that stay easy to extend.",
+  "summary": "As a Software Engineer, I build products across frontend, backend, and automation with a focus on clarity, performance, and maintainability. My daily stack spans React, Next.js, TypeScript, Node.js, Express, Python, FastAPI, Rust, MongoDB, MySQL, and Docker, so I can move comfortably between interfaces, APIs, and systems.\n\nSince Sep 2025, I have been working at Revel Healthtech in the healthcare domain, and over the past year I have been improving scheduling, manage visits, call logs, outreach, clinical team tools, search, navigation, and release quality. Across client work and public repositories, I have shipped 35+ products spanning healthcare, fintech, e-commerce, DeFi, developer tooling, and open-source experiments. I care about clean architecture, fast user experiences, and codebases that stay easy to extend.",
   "skills": {
     "languages": [
       "JavaScript",
@@ -182,92 +182,227 @@
   ],
   "projects": [
     {
+      "name": "Credaryn",
+      "url": "https://github.com/ranjeet-h/credaryn",
+      "website": "https://ranjeet-h.github.io/credaryn/",
+      "visibility": "public",
+      "description": "Open-source trust infrastructure for issuing and independently verifying authentic business documents across digital PDFs and physical paper.",
+      "details": "Seals PDFs with standards-compatible PAdES signatures, carries signed claims onto paper as machine-readable seals, and verifies both through one normalized result model without requiring a cloud service.",
+      "tech": ["TypeScript", "Node.js", "PAdES", "CBOR/COSE", "Cryptography"],
+      "language": "TypeScript",
+      "stars": 0,
+      "updated": "2026-09-18T10:33:12Z"
+    },
+    {
       "name": "Narrator",
       "url": "https://github.com/ranjeet-h/narrator",
       "publicationUrl": "https://zenodo.org/records/18671099",
-      "description": "A published research paper and local-first audiobook system that generates narrated audio directly on end devices.",
-      "details": "Published on Zenodo as 'Audiobook Creation on End Devices: A Local-First Generation Framework'. Narrator uses a deterministic seven-stage pipeline (INGEST, ANALYZE, CLEAN, SEGMENT, SYNTHESIZE, MASTER, PACKAGE) with Docling-based document conversion, Kokoro TTS, FFmpeg mastering, FastAPI/SQLModel orchestration, and durable SQLite state for restartable on-demand audiobook generation.",
-      "tech": [
-        "Python",
-        "FastAPI",
-        "SQLModel",
-        "Docling",
-        "Kokoro TTS",
-        "FFmpeg"
-      ],
+      "visibility": "public",
+      "description": "A published research project and local-first PDF-to-audiobook system with a restartable, seven-stage generation pipeline.",
+      "details": "FastAPI and SQLModel persist job and artifact state in SQLite so interrupted work can resume. The pipeline uses Docling for document conversion, Kokoro for local speech synthesis, optional ElevenLabs/Sarvam cloud TTS, optional Sarvam OCR for Indian-language documents, and FFmpeg for audio mastering and packaging.",
+      "tech": ["Python", "FastAPI", "SQLModel", "React", "Docling", "Kokoro TTS", "FFmpeg", "SQLite"],
       "language": "Python",
       "stars": 0,
       "updated": "2026-03-11T11:09:24Z"
     },
     {
-      "name": "lipic-js",
-      "url": "https://github.com/ranjeet-h/lipic-js",
-      "description": "Fast transliteration for web text inputs with a JS/WASM hybrid runtime.",
-      "details": "Built to keep typing responsive while handling transliteration logic at the edge of the input experience.",
-      "tech": [
-        "TypeScript",
-        "WebAssembly",
-        "JavaScript"
+      "name": "GID-128",
+      "url": "https://github.com/ranjeet-h/giga-id",
+      "visibility": "public",
+      "description": "A compact, sortable 128-bit identifier format with Rust-backed JavaScript/TypeScript and Python packages.",
+      "details": "Uses a 48-bit millisecond timestamp and an 80-bit monotonic entropy tail, stores canonical IDs in 16 bytes, and provides a 22-character URL-safe form plus an opaque public projection. Sortable IDs reveal approximate creation order, so the opaque form is intended for external tokens.",
+      "extraLinks": [
+        {"label": "npm", "href": "https://www.npmjs.com/package/@gid128/core"},
+        {"label": "PyPI", "href": "https://pypi.org/project/gid128/"}
       ],
+      "tech": ["Rust", "TypeScript", "Python", "N-API", "PyO3"],
       "language": "TypeScript",
-      "stars": 1,
-      "updated": "2026-02-08T03:41:10Z"
+      "stars": 0,
+      "updated": "2026-06-28T02:52:08Z"
     },
     {
-      "name": "LAN Chat App Rust",
-      "url": "https://github.com/ranjeet-h/LAN-chat-app-rust",
-      "description": "A Rust-based chat app for private messaging on the same local network with automatic peer discovery.",
-      "details": "Explores peer-to-peer discovery, local-first messaging, and serverless communication patterns in Rust.",
-      "tech": [
-        "Rust",
-        "Networking",
-        "Peer discovery"
+      "name": "lipic-js",
+      "url": "https://github.com/ranjeet-h/lipic-js",
+      "website": "https://ranjeet-h.github.io/lipic-js/playground/",
+      "visibility": "public",
+      "description": "A JavaScript and WebAssembly transliteration library for text inputs, textareas, and contenteditable elements, supporting 27 Indian and South Asian languages.",
+      "details": "The JavaScript path handles interactive typing and composition events; Rust/WebAssembly accelerates batch work with a JavaScript fallback. Transliteration maps phonetic input into another script; it is not translation.",
+      "extraLinks": [{"label": "npm", "href": "https://www.npmjs.com/package/lipic-js"}],
+      "tech": ["TypeScript", "JavaScript", "Rust", "WebAssembly", "npm"],
+      "language": "TypeScript",
+      "stars": 2,
+      "updated": "2026-09-08T09:06:17Z"
+    },
+    {
+      "name": "Excalidraw Local",
+      "url": "https://github.com/ranjeet-h/excalidraw-local",
+      "visibility": "public",
+      "description": "A local-first desktop workspace for Excalidraw diagrams, built with React, Tauri, and Rust.",
+      "details": "Adds tabbed documents, native open/save dialogs, drag-and-drop, autosave, session recovery, Mermaid import, and PNG/SVG/Excalidraw exports. Local files and recovery snapshots remain distinct so recovery does not silently overwrite a saved document.",
+      "tech": ["React", "TypeScript", "Tauri", "Rust", "Excalidraw"],
+      "language": "TypeScript",
+      "stars": 1,
+      "updated": "2026-07-30T14:16:48Z"
+    },
+    {
+      "name": "ag-grid-open",
+      "url": "https://github.com/ranjeet-h/ag-grid-open",
+      "visibility": "public",
+      "description": "A TypeScript-first wrapper and extension layer for AG Grid Community with optional Rust/WebAssembly performance paths.",
+      "details": "Separates core, advanced, and WASM packages, with React examples, worker-based paths, parity checks, and repeatable benchmark scripts. Performance results are operation-specific local snapshots and should not be generalized to every grid workload.",
+      "tech": ["TypeScript", "React", "AG Grid", "Rust", "WebAssembly", "Web Workers"],
+      "language": "TypeScript",
+      "stars": 1,
+      "updated": "2026-02-16T00:42:12Z"
+    },
+    {
+      "name": "Code-EL Platform",
+      "url": "https://github.com/ranjeet-h/Code-EL",
+      "visibility": "public",
+      "description": "A local-first coding-practice platform with 200 DSA problems, an in-browser editor, and containerized execution in six languages.",
+      "details": "Uses Monaco for editing and Docker for isolated test execution across JavaScript, Python, Go, Java, C++, and Rust. Submission history is stored locally for a single user.",
+      "tech": ["React", "TypeScript", "Monaco", "Docker", "Node.js", "Python"],
+      "language": "TypeScript",
+      "stars": 0,
+      "updated": "2025-08-08T07:19:01Z"
+    },
+    {
+      "name": "Local Resume Matcher",
+      "url": "https://github.com/ranjeet-h/resume-grader",
+      "website": "https://ranjeet-h.github.io/resume-grader/",
+      "visibility": "public",
+      "description": "A local-first research toolkit for comparing resume-to-job matching methods and inspecting ranking behavior.",
+      "details": "Runs replaceable local model adapters, compares rankings with labels and a lexical baseline, and processes local PDF/TXT inputs. Scores are experimental rubric outputs, not calibrated probabilities or recommendations; the tool is not for employment decisions.",
+      "tech": ["TypeScript", "Python", "Local inference", "PyTorch", "PDF processing"],
+      "language": "TypeScript",
+      "stars": 0,
+      "updated": "2026-09-21T06:25:14Z"
+    },
+    {
+      "name": "CloudRAID",
+      "visibility": "private",
+      "description": "A multi-cloud deployment platform with a CLI, control plane, operations dashboard, cost service, and provider adapters.",
+      "details": "The private case study covers AWS, GCP, and Azure provisioning, desired/observed-state reconciliation, rollback, health evaluation, operator-driven failover for prepared targets, and automatic failover for eligible multi-target AWS/GCP deployments after health thresholds are met. Optional Cloudflare routing is available; provider and workload support varies, and some source layouts need project-specific edits.",
+      "tech": ["Go", "gRPC", "REST", "TypeScript", "Python", "PostgreSQL", "AWS", "GCP", "Azure", "Cloudflare"],
+      "language": "Go",
+      "updated": "2026-05-13T03:30:24Z"
+    },
+    {
+      "name": "MUSUMA CSP Portal",
+      "visibility": "private",
+      "description": "A multi-tenant business-management platform for inventory, orders, customers, financial tracking, analytics, and ecommerce workflows.",
+      "details": "The private project spans a React/TypeScript web client, Express/MongoDB backend, Electron desktop distribution, and Docker deployment. Tenant scope and authorization belong in backend queries and writes, not only in UI filtering.",
+      "tech": ["React", "TypeScript", "Ant Design", "TanStack Query", "Node.js", "Express", "MongoDB", "Electron", "Docker"],
+      "language": "TypeScript",
+      "updated": "2026-08-29T10:16:36Z"
+    },
+    {
+      "name": "Provenance",
+      "visibility": "private",
+      "description": "A local-first desktop app for finding and reviewing text reuse in academic assignments.",
+      "details": "A Tauri/React interface uses separate Rust crates for text normalization, exact and modified matching, common-text handling, and evidence reports. It supports pasted text plus digital TXT, Markdown, PDF, and DOCX; similarity is evidence for human review, not proof of plagiarism. OCR is outside the current product scope.",
+      "tech": ["Tauri", "React", "TypeScript", "Rust", "PDF", "DOCX"],
+      "language": "Rust",
+      "updated": "2026-09-07T16:42:43Z"
+    },
+    {
+      "name": "LitLens",
+      "visibility": "private",
+      "description": "A local-first textbook digitization pipeline that turns page images into structured Markdown and PDF output.",
+      "details": "Uses local vision-language models for detection, cropping, preprocessing, parsing, quality evaluation, assembly, and persistence. The same Python pipeline supports single-page, batch, and watched-folder workflows through CLI and Gradio interfaces.",
+      "tech": ["Python", "Vision-language models", "MLX", "Gradio", "pytest"],
+      "language": "Python",
+      "updated": "2026-02-21T18:19:04Z"
+    },
+    {
+      "name": "rh-mi-icon-data",
+      "url": "https://github.com/ranjeet-h/rh-mi-icon-data",
+      "visibility": "public",
+      "description": "An on-demand Material Symbols delivery system for React that generates only the icons an application uses.",
+      "details": "A CLI reads a versioned icon registry, generates local assets or components, and works with a small React runtime. The registry can be served through jsDelivr; generated assets can also be self-hosted.",
+      "extraLinks": [
+        {"label": "React package", "href": "https://www.npmjs.com/package/rh-mi-react"},
+        {"label": "CLI package", "href": "https://www.npmjs.com/package/rh-mi-cli"}
       ],
+      "tech": ["TypeScript", "React", "Node.js", "GitHub Actions", "jsDelivr", "npm"],
+      "language": "TypeScript",
+      "stars": 1,
+      "updated": "2026-04-15T09:31:19Z"
+    },
+    {
+      "name": "VS Code Extension Manager",
+      "url": "https://github.com/ranjeet-h/vsc-extension-manager",
+      "visibility": "public",
+      "description": "A VS Code extension for exporting and importing extensions and settings across VS Code, Cursor, and VSCodium.",
+      "details": "Provides a sidebar for selecting extensions, detects editor CLIs, skips already-installed items, and reports install progress and cancellation. Settings are handled as JSONC; imported configuration should be treated as untrusted input.",
+      "tech": ["TypeScript", "VS Code API", "Node.js", "JSONC", "Process orchestration"],
+      "language": "TypeScript",
+      "stars": 2,
+      "updated": "2026-09-03T09:16:58Z"
+    },
+    {
+      "name": "LAN Chat",
+      "url": "https://github.com/ranjeet-h/LAN-chat-app-rust",
+      "visibility": "public",
+      "description": "A peer-to-peer desktop chat app that discovers users on a local network and exchanges messages without a central server.",
+      "details": "A Rust daemon handles mDNS discovery and direct TCP messaging, while an egui client communicates with it over JSON on a Unix-domain socket. The separation keeps networking independent from the UI and supports multiple local instances.",
+      "tech": ["Rust", "Tokio", "mDNS", "TCP", "Unix sockets", "egui"],
       "language": "Rust",
       "stars": 1,
       "updated": "2026-04-01T23:18:09Z"
     },
     {
-      "name": "ProShop MERN eCommerce",
-      "url": "https://github.com/ranjeet-h/ProShop_MERN_eCommerce",
-      "description": "A MERN e-commerce build that covers product browsing, cart flows, and backend-driven commerce logic.",
-      "details": "Represents full-stack work across React, Node.js, Express, and MongoDB for product-led web applications.",
-      "tech": [
-        "React",
-        "Node.js",
-        "Express",
-        "MongoDB"
-      ],
-      "language": "JavaScript",
+      "name": "ROHO Blockchain",
+      "url": "https://github.com/ranjeet-h/roho-rh-blockchain",
+      "visibility": "public",
+      "description": "An experimental Rust proof-of-work blockchain implementation focused on consensus, transaction validation, and peer-to-peer synchronization.",
+      "details": "The README describes BLAKE3 mining, Schnorr signatures over secp256k1, a UTXO ledger, persistent state, and network synchronization. This is an implementation project, not a claim of production cryptocurrency readiness.",
+      "tech": ["Rust", "BLAKE3", "Schnorr", "secp256k1", "UTXO", "P2P"],
+      "language": "Rust",
       "stars": 1,
-      "updated": "2021-12-25T05:50:07Z"
+      "updated": "2026-01-20T03:39:08Z"
     },
     {
-      "name": "Rust Web Scraper",
-      "url": "https://github.com/ranjeet-h/rust-based-scrapper",
-      "description": "A web scraping app built with Rust backend, Rust GUI, and WebAssembly frontend.",
-      "details": "Uses Axum, SQLite, egui, and Firecrawl to explore native and web-delivered Rust tooling.",
-      "tech": [
-        "Rust",
-        "Axum",
-        "SQLite",
-        "WebAssembly",
-        "egui"
-      ],
+      "name": "codivex-mcp-server",
+      "url": "https://github.com/ranjeet-h/codivex-mcp-server",
+      "visibility": "public",
+      "description": "A local code-search engine exposed through MCP, with Rust indexing and search components, a CLI, and a desktop UI.",
+      "details": "The workspace separates indexing, search, embeddings, shared code, MCP server, and Dioxus UI crates. Its README includes deployment, security, IDE setup, client compatibility, and performance-testing guides.",
+      "tech": ["Rust", "MCP", "Code indexing", "Search", "Embeddings", "Dioxus"],
       "language": "Rust",
       "stars": 0,
-      "updated": "2025-04-22T14:28:57Z"
+      "updated": "2026-02-22T16:32:29Z"
+    },
+    {
+      "name": "QuillFix",
+      "url": "https://github.com/ranjeet-h/quillfix",
+      "visibility": "public",
+      "description": "A macOS menu bar app that corrects grammar and spelling in selected text using a local MLX model.",
+      "details": "Built in Rust with a local model download and app-bundling workflow. Local inference keeps selected text on-device; the full MLX build requires the macOS Metal toolchain.",
+      "tech": ["Rust", "macOS", "MLX", "Local inference"],
+      "language": "Rust",
+      "stars": 0,
+      "updated": "2026-03-08T16:52:34Z"
+    },
+    {
+      "name": "SciNotepad",
+      "url": "https://github.com/ranjeet-h/sci-editor",
+      "website": "https://sci-editor.vercel.app/",
+      "visibility": "public",
+      "description": "A responsive scientific notepad that evaluates equations as users type and supports variables, history, and a math-symbol palette.",
+      "details": "Expressions ending in '=' are evaluated with mathjs; keyboard controls let users accept or dismiss results. The app also includes scientific functions, matrices, keyboard navigation, and screen-reader support.",
+      "tech": ["React", "TypeScript", "mathjs", "Vite", "Accessibility"],
+      "language": "TypeScript",
+      "stars": 0,
+      "updated": "2025-05-04T11:37:49Z"
     },
     {
       "name": "AI Question Paper Solver",
       "url": "https://github.com/ranjeet-h/QP-solver",
-      "description": "A full-stack, AI-powered mobile app that solves question papers and accelerates workflow.",
-      "details": "Built in 48 hours to show how AI-assisted development can ship production-feeling mobile products quickly.",
-      "tech": [
-        "React Native",
-        "TypeScript",
-        "AI"
-      ],
+      "visibility": "public",
+      "description": "An Expo mobile app concept for answering uploaded question papers using supplied reference books and LLMs.",
+      "details": "The README describes authentication, credit plans, question-paper uploads, and a planned Razorpay purchase flow; payment integration is currently mocked. No live demo is listed.",
+      "tech": ["React Native", "Expo", "TypeScript", "LLM", "NativeWind", "Razorpay"],
       "language": "TypeScript",
       "stars": 0,
       "updated": "2025-04-13T08:47:50Z"
@@ -275,14 +410,10 @@
     {
       "name": "Can I Eat",
       "url": "https://github.com/ranjeet-h/can-i-eat",
-      "description": "An AI-assisted app that turns complex food labels into simple, visual health insights.",
-      "details": "Focused on mobile-first scanning, allergen clarity, and community-driven label intelligence.",
-      "tech": [
-        "React",
-        "TypeScript",
-        "Supabase",
-        "Framer Motion"
-      ],
+      "visibility": "public",
+      "description": "A web app for looking up packaged food in India and understanding ingredients, nutrition, allergens, and dietary compatibility.",
+      "details": "Searches products by name, brand, or ingredient and presents label information with health indicators and alternative suggestions. The README does not describe this as an AI product or list a live demo.",
+      "tech": ["React", "TypeScript", "Vite", "Tailwind CSS", "Supabase"],
       "language": "TypeScript",
       "stars": 0,
       "updated": "2025-03-09T13:02:11Z"
@@ -291,31 +422,24 @@
       "name": "Algo Visualizer",
       "url": "https://github.com/ranjeet-h/algo-visualizer",
       "website": "https://algo-visualizer-lilac.vercel.app/",
-      "description": "An interactive platform for visualizing data structures and algorithms.",
-      "details": "Built to make arrays, linked lists, hash tables, and sorting algorithms easier to understand through motion.",
-      "tech": [
-        "React",
-        "TypeScript",
-        "Vite",
-        "Framer Motion"
-      ],
+      "visibility": "public",
+      "description": "An interactive learning app for visualizing common data structures and sorting algorithms.",
+      "details": "Includes arrays, linked lists, stacks, queues, hash tables, trees, and bubble, selection, insertion, quick, and merge sort visualizations.",
+      "tech": ["React", "TypeScript", "Vite", "D3", "Tailwind CSS", "Motion"],
       "language": "TypeScript",
       "stars": 0,
       "updated": "2025-05-07T03:32:18Z"
     },
     {
-      "name": "Scripting and Web Scraping",
-      "url": "https://github.com/ranjeet-h/Scripting-and-Web-Scraping",
-      "description": "Python scripting and web scraping utilities.",
-      "details": "Covers automation-minded workflows, data extraction, and lightweight Python tooling.",
-      "tech": [
-        "Python",
-        "Automation",
-        "Scraping"
-      ],
-      "language": "Python",
-      "stars": 1,
-      "updated": "2021-12-25T05:50:25Z"
+      "name": "Rust Web Scraper",
+      "url": "https://github.com/ranjeet-h/rust-based-scrapper",
+      "visibility": "public",
+      "description": "A Rust web-scraping application with an Axum API, SQLite history, and a user interface.",
+      "details": "The documented POST /scrape flow uses Firecrawl to fetch Markdown from a URL and caches the result; GET /history returns stored scrape records. A Firecrawl API key is required for that provider path.",
+      "tech": ["Rust", "Axum", "SQLite", "Reqwest", "Firecrawl", "Tokio"],
+      "language": "Rust",
+      "stars": 0,
+      "updated": "2025-04-22T14:28:57Z"
     }
   ],
   "languages": [

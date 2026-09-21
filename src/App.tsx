@@ -75,7 +75,7 @@ const App = () => {
         window.localStorage.setItem('theme', theme);
     }, [theme]);
 
-    const publicRepoCount = 72;
+    const publicRepoCount = 64;
 
     const heroStats: HeroStat[] = [
         {
@@ -86,7 +86,7 @@ const App = () => {
         {
             label: 'Public repos',
             value: String(publicRepoCount),
-            detail: 'Public GitHub repositories and open-source work',
+            detail: 'Public repositories, excluding forks',
         },
         {
             label: 'Core stack',

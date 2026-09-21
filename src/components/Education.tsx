@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { containerVariants, itemVariants, sectionVariants } from './animation';
+import { containerVariants, itemVariants } from './animation';
 
 interface EducationEntry {
     degree: string;
@@ -14,16 +14,16 @@ interface EducationProps {
 
 const Education = ({ education }: EducationProps) => {
     return (
-        <motion.section className="panel education-panel" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} aria-labelledby="education-title">
+        <motion.section className="panel education-panel" aria-labelledby="education-title">
             <div className="panel-head">
                 <p className="section-kicker">Education</p>
                 <h2 id="education-title" className="section-title">
-                    Academic foundation
+                    Education & qualifications
                 </h2>
-                <p className="section-copy">The formal base behind the product work.</p>
+                <p className="section-copy">Degrees, institutions, and academic results.</p>
             </div>
 
-            <motion.div className="education-grid" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }}>
+            <motion.div className="education-grid" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
                 {education.map((edu) => (
                     <motion.article
                         key={`${edu.degree}-${edu.year}`}

@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { containerVariants, itemVariants, sectionVariants } from './animation';
+import { containerVariants, itemVariants } from './animation';
 
 interface PersonalInfoData {
     name: string;
@@ -37,16 +37,16 @@ const PersonalInfo = ({ personalInfo }: PersonalInfoProps) => {
     ];
 
     return (
-        <motion.section className="panel personal-panel" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} aria-labelledby="profile-title">
+        <motion.section className="panel personal-panel" aria-labelledby="profile-title">
             <div className="panel-head">
                 <p className="section-kicker">About</p>
                 <h2 id="profile-title" className="section-title">
-                    Software engineering snapshot
+                    Profile & contact
                 </h2>
-                <p className="section-copy">Contact details, role, and stack at a glance.</p>
+                <p className="section-copy">Role, location, and contact details.</p>
             </div>
 
-            <motion.div className="profile-tags" aria-label="Profile highlights" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
+            <motion.div className="profile-tags" aria-label="Profile highlights" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
                 {profileHighlights.map((item) => (
                     <motion.div className="profile-chip" key={item.label} variants={itemVariants} whileHover={{ y: -2, transition: { duration: 0.2 } }}>
                         <span className="profile-chip-label">{item.label}</span>
@@ -55,7 +55,7 @@ const PersonalInfo = ({ personalInfo }: PersonalInfoProps) => {
                 ))}
             </motion.div>
 
-            <motion.dl className="info-grid" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
+            <motion.dl className="info-grid" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
                 {infoRows.map((row) => {
                     const isExternalLink = row.href?.startsWith('http');
 
@@ -76,7 +76,7 @@ const PersonalInfo = ({ personalInfo }: PersonalInfoProps) => {
                 })}
             </motion.dl>
 
-            <motion.div className="contact-actions" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
+            <motion.div className="contact-actions" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
                 <motion.a className="info-button info-button-primary" href={`mailto:${personalInfo.email}`} variants={itemVariants} whileHover={{ y: -2, transition: { duration: 0.2 } }}>
                     Email me
                 </motion.a>

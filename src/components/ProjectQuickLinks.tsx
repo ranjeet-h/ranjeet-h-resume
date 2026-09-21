@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { containerVariants, itemVariants, sectionVariants } from './animation';
+import { containerVariants, itemVariants } from './animation';
 
 interface Project {
     name: string;
@@ -34,16 +34,16 @@ const ProjectQuickLinks = ({ projects }: ProjectQuickLinksProps) => {
     const featuredProjects = projects.slice(0, 6);
 
     return (
-        <motion.section className="panel project-rail" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} aria-labelledby="projects-rail-title">
+        <motion.section className="panel project-rail" aria-labelledby="projects-rail-title">
             <div className="panel-head">
-                <p className="section-kicker">Projects</p>
+                <p className="section-kicker">Highlights</p>
                 <h2 id="projects-rail-title" className="section-title">
-                    Fast access to the projects I want people to see first
+                    Featured projects
                 </h2>
-                <p className="section-copy">A quicker way to jump from the story to the paper, code, or a live build.</p>
+                <p className="section-copy">Live demos, research papers, and source code.</p>
             </div>
 
-            <motion.div className="project-rail-grid" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }}>
+            <motion.div className="project-rail-grid" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
                 {featuredProjects.map((project, index) => {
                     const href = getProjectHref(project);
                     const label = getProjectLabel(project);
