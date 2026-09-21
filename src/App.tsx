@@ -52,6 +52,45 @@ const ThemeSwitcher = ({ theme, toggleTheme }: { theme: Theme; toggleTheme: () =
     </div>
 );
 
+const PortfolioNav = ({ theme, toggleTheme }: { theme: Theme; toggleTheme: () => void }) => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const closeMenu = () => setIsMenuOpen(false);
+
+    return (
+        <header
+            className={`topbar${isMenuOpen ? ' topbar-menu-open' : ''}`}
+            id="top"
+            onKeyDown={(event) => {
+                if (event.key === 'Escape') closeMenu();
+            }}
+        >
+            <a className="brand-lockup" href="#main" aria-label="Ranjeet Harishchandre, portfolio home" onClick={closeMenu}>
+                <span className="brand-kicker">Portfolio</span>
+                <span className="brand-title">Ranjeet Harishchandre</span>
+            </a>
+            <nav className={`topbar-nav${isMenuOpen ? ' topbar-nav-open' : ''}`} id="portfolio-mobile-nav" aria-label="Portfolio sections">
+                <a className="topbar-link" href="#profile-title" onClick={closeMenu}>About</a>
+                <a className="topbar-link" href="#skills-title" onClick={closeMenu}>Skills</a>
+                <a className="topbar-link" href="#experience-title" onClick={closeMenu}>Experience</a>
+                <a className="topbar-link" href="#projects-title" onClick={closeMenu}>Projects</a>
+            </nav>
+            <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
+            <button
+                type="button"
+                className="topbar-menu-toggle"
+                onClick={() => setIsMenuOpen((open) => !open)}
+                aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                aria-expanded={isMenuOpen}
+                aria-controls="portfolio-mobile-nav"
+            >
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+                    {isMenuOpen ? <path d="m6 6 12 12M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+                </svg>
+            </button>
+        </header>
+    );
+};
+
 const getInitialTheme = (): Theme => {
     if (typeof window === 'undefined') {
         return 'light';
@@ -107,7 +146,7 @@ const App = () => {
             </div>
             <div className="page-orb page-orb-one" aria-hidden="true" />
             <div className="page-orb page-orb-two" aria-hidden="true" />
-            <ThemeSwitcher theme={theme} toggleTheme={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))} />
+            <PortfolioNav theme={theme} toggleTheme={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))} />
 
             <main id="main" className="page-container">
                 <Header

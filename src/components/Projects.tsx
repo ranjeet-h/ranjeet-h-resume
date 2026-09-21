@@ -103,11 +103,11 @@ const Projects = ({ projects }: ProjectsProps) => {
                             whileHover={{ y: -4, transition: { duration: 0.2 } }}
                         >
                             <div className="project-card-head">
-                                <span className="project-index">{String(index + 1).padStart(2, '0')}</span>
-                                <div className="project-card-heading">
+                                <div className="project-card-meta-row">
+                                    <span className="project-index">{String(index + 1).padStart(2, '0')}</span>
                                     <p className="project-type">{projectType}</p>
-                                    <h3 className="project-title">{project.name}</h3>
                                 </div>
+                                <h3 className="project-title">{project.name}</h3>
                             </div>
 
                             {metadata.length > 0 && (
